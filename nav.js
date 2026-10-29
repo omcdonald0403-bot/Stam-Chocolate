@@ -1,286 +1,211 @@
 /**
- * Harvest Collection Landing Page - Navigation & Interactivity Script
- * File: nav.js
+ * Harvest Collection Landing Page - Router & Interactivity Engine
+ * File: app.js
  */
 
+// Global Shopping Cart State
+let cart = [];
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize all UI handlers
-    initMobileNavigation();
-    initCartDrawer();
-    initBundleCalculator();
-    initSmoothScrolling();
-    initCheckoutModal();
-    initAutumnLeavesAnimation();
+  // 1. Initialize Single-Page Application (SPA) Router
+  initRouter();
+  
+  // 2. Initialize Slide-Over Cart Drawer Events
+  initCartDrawer();
+  
+  // 3. Generate Falling Leaves Background FX
+  initLeavesFX();
 });
 
 /**
- * 1. Mobile Navigation Toggle Handler
+ * 1. SPA Router - Handles dynamic navigation between the main ad banner 
+ *    and individual sub-ad landing pages without reloading the page.
  */
-function initMobileNavigation() {
-    const navToggleBtn = document.getElementById('navToggle');
-    const navLinksList = document.getElementById('navLinks');
-
-    if (!navToggleBtn || !navLinksList) return;
-
-    navToggleBtn.addEventListener('click', () => {
-        const isOpen = navLinksList.classList.toggle('active');
-        navToggleBtn.setAttribute('aria-expanded', isOpen);
-        
-        // Toggle hamburger / close icon visual state
-        const icon = navToggleBtn.querySelector('i') || navToggleBtn;
-        if (isOpen) {
-            navToggleBtn.classList.add('is-open');
-        } else {
-            navToggleBtn.classList.remove('is-open');
-        }
+function initRouter() {
+  function navigateTo(pageId) {
+    // Hide all active page views
+    document.querySelectorAll('.page-view').forEach(view => {
+      view.classList.remove('active');
     });
 
-    // Close menu when clicking any nav link on mobile
-    const navItems = navLinksList.querySelectorAll('a');
-    navItems.forEach(link => {
-        link.addEventListener('click', () => {
-            navLinksList.classList.remove('active');
-            navToggleBtn.setAttribute('aria-expanded', 'false');
-            navToggleBtn.classList.remove('is-open');
-        });
+    // Determine target view (fallback to 'home' if page ID is invalid)
+    const targetView = document.getElementById(pageId) || document.getElementById('home');
+    targetView.classList.add('active');
+
+    // Update global navigation bar active tab state
+    document.querySelectorAll('.nav-item').forEach(nav => {
+      if (nav.getAttribute('data-page') === pageId) {
+        nav.classList.add('active');
+      } else {
+        nav.classList.remove('active');
+      }
     });
 
-    // Close nav when clicking outside
-    document.addEventListener('click', (event) => {
-        if (!navLinksList.contains(event.target) && !navToggleBtn.contains(event.target)) {
-            navLinksList.classList.remove('active');
-            navToggleBtn.setAttribute('aria-expanded', 'false');
-            navToggleBtn.classList.remove('is-open');
-        }
-    });
+    // Scroll smoothly back to top on page switch
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Update URL hash for browser history support
+    if (window.location.hash !== `#${pageId}`) {
+      history.pushState(null, null, `#${pageId}`);
+    }
+  }
+
+  // Intercept click on any element containing data-page attribute
+  document.body.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-page]');
+    if (trigger) {
+      e.preventDefault();
+      const pageTarget = trigger.getAttribute('data-page');
+      navigateTo(pageTarget);
+    }
+  });
+
+  // Handle browser Back / Forward navigation buttons
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    navigateTo(hash);
+  });
+
+  // Initial routing check on load
+  const initialHash = window.location.hash.replace('#', '') || 'home';
+  navigateTo(initialHash);
 }
 
 /**
- * 2. Cart Slide-Over Drawer Controller
+ * 2. Cart Data Management & Dynamic UI Updates
+ */
+function addToCart(title, price) {
+  cart.push({ title, price });
+  updateCartUI();
+  openCart();
+  showToastNotification(`Added "${title}" to your cart!`);
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartUI();
+}
+
+function updateCartUI() {
+  const cartBadge = document.getElementById('cartBadge');
+  const cartList = document.getElementById('cartList');
+  const cartTotal = document.getElementById('cartTotal');
+
+  if (cartBadge) {
+    cartBadge.textContent = cart.length;
+  }
+
+  if (!cartList || !cartTotal) return;
+
+  if (cart.length === 0) {
+    cartList.innerHTML = `<p style="color: #6C5A50; text-align: center; margin-top: 2rem;">Your cart is currently empty.</p>`;
+    cartTotal.textContent = `$0.00`;
+    return;
+  }
+
+  let total = 0;
+  cartList.innerHTML = cart.map((item, index) => {
+    total += item.price;
+    return `
+      <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #E8D6C8;">
+        <div>
+          <strong style="display: block; color: #3A1A10;">${item.title}</strong>
+          <span style="color: #6B1C1C; font-weight: 600;">$${item.price.toFixed(2)}</span>
+        </div>
+        <button onclick="removeFromCart(${index})" style="background: none; border: none; color: #C86D51; font-weight: 600; cursor: pointer;">Remove</button>
+      </div>
+    `;
+  }).join('');
+
+  cartTotal.textContent = `$${total.toFixed(2)}`;
+}
+
+/**
+ * 3. Slide-Over Cart Drawer Controller
  */
 function initCartDrawer() {
-    const cartTriggerBtns = document.querySelectorAll('.cart-trigger, #cartBtn');
-    const cartDrawer = document.getElementById('cartDrawer');
-    const cartOverlay = document.getElementById('cartOverlay');
-    const closeCartBtn = document.getElementById('closeCart');
+  const openBtn = document.getElementById('openCartBtn');
+  const closeBtn = document.getElementById('closeCartBtn');
+  const overlay = document.getElementById('cartOverlay');
 
-    function openCart() {
-        if (cartDrawer && cartOverlay) {
-            cartDrawer.classList.add('open');
-            cartOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-    }
+  if (openBtn) openBtn.addEventListener('click', openCart);
+  if (closeBtn) closeBtn.addEventListener('click', closeCart);
+  if (overlay) overlay.addEventListener('click', closeCart);
+}
 
-    function closeCart() {
-        if (cartDrawer && cartOverlay) {
-            cartDrawer.classList.remove('open');
-            cartOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }
+function openCart() {
+  const drawer = document.getElementById('cartDrawer');
+  const overlay = document.getElementById('cartOverlay');
+  if (drawer && overlay) {
+    drawer.classList.add('open');
+    overlay.classList.add('active');
+  }
+}
 
-    cartTriggerBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            openCart();
-        });
-    });
-
-    if (closeCartBtn) {
-        closeCartBtn.addEventListener('click', closeCart);
-    }
-
-    if (cartOverlay) {
-        cartOverlay.addEventListener('click', closeCart);
-    }
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && cartDrawer && cartDrawer.classList.contains('open')) {
-            closeCart();
-        }
-    });
+function closeCart() {
+  const drawer = document.getElementById('cartDrawer');
+  const overlay = document.getElementById('cartOverlay');
+  if (drawer && overlay) {
+    drawer.classList.remove('open');
+    overlay.classList.remove('active');
+  }
 }
 
 /**
- * 3. Interactive Harvest Bundle Price Calculator
+ * 4. Falling Autumn Leaves Visual Effects Engine
  */
-function initBundleCalculator() {
-    const coffeeSelect = document.getElementById('coffeeSelect');
-    const chocolateSelect = document.getElementById('chocolateSelect');
-    
-    const originalPriceElem = document.getElementById('originalPrice');
-    const discountAmountElem = document.getElementById('discountAmount');
-    const finalPriceElem = document.getElementById('finalPrice');
-    const addToCartBtn = document.getElementById('addBundleToCartBtn');
+function initLeavesFX() {
+  const container = document.getElementById('leavesContainer');
+  if (!container) return;
 
-    if (!coffeeSelect || !chocolateSelect) return;
-
-    function recalculateBundle() {
-        // Fetch price values stored in selected option data attributes
-        const selectedCoffeeOpt = coffeeSelect.options[coffeeSelect.selectedIndex];
-        const selectedChocOpt = chocolateSelect.options[chocolateSelect.selectedIndex];
-
-        const coffeePrice = parseFloat(selectedCoffeeOpt.getAttribute('data-price') || 0);
-        const chocolatePrice = parseFloat(selectedChocOpt.getAttribute('data-price') || 0);
-
-        // 20% Discount applies specifically to the Harvest Collection Chocolate Box when bought with coffee
-        const chocolateDiscount = chocolatePrice * 0.20;
-        const totalOriginal = coffeePrice + chocolatePrice;
-        const totalFinal = totalOriginal - chocolateDiscount;
-
-        // Render calculated figures
-        if (originalPriceElem) {
-            originalPriceElem.textContent = `$${totalOriginal.toFixed(2)}`;
-        }
-        if (discountAmountElem) {
-            discountAmountElem.textContent = `-$${chocolateDiscount.toFixed(2)}`;
-        }
-        if (finalPriceElem) {
-            finalPriceElem.textContent = `$${totalFinal.toFixed(2)}`;
-        }
-    }
-
-    // Attach listeners on dropdown change
-    coffeeSelect.addEventListener('change', recalculateBundle);
-    chocolateSelect.addEventListener('change', recalculateBundle);
-
-    // Add Bundle to Cart Action
-    if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', () => {
-            const coffeeName = coffeeSelect.options[coffeeSelect.selectedIndex].text;
-            const chocolateName = chocolateSelect.options[chocolateSelect.selectedIndex].text;
-
-            // Trigger notification banner or cart drawer update
-            showNotification(`Added ${coffeeName} & ${chocolateName} (20% Off applied!)`);
-            
-            // Increment cart count badge if present
-            const cartBadge = document.querySelector('.cart-count');
-            if (cartBadge) {
-                let count = parseInt(cartBadge.textContent) || 0;
-                cartBadge.textContent = count + 1;
-            }
-        });
-    }
-
-    // Run calculation once on startup
-    recalculateBundle();
+  const icons = ['🍁', '🍂', '🍃', '🌰'];
+  const leafCount = 15;
+  
+  for (let i = 0; i < leafCount; i++) {
+    const leaf = document.createElement('div');
+    leaf.className = 'leaf';
+    leaf.textContent = icons[Math.floor(Math.random() * icons.length)];
+    leaf.style.left = `${Math.random() * 100}%`;
+    leaf.style.animationDuration = `${6 + Math.random() * 8}s`;
+    leaf.style.animationDelay = `${Math.random() * 5}s`;
+    container.appendChild(leaf);
+  }
 }
 
 /**
- * 4. Smooth Anchor Scrolling for Page Links
+ * Helper: Toast Notification Handler
  */
-function initSmoothScrolling() {
-    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+function showToastNotification(message) {
+  let toast = document.getElementById('toastNotification');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toastNotification';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #6B1C1C;
+      color: #FFFFFF;
+      padding: 12px 20px;
+      border-radius: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      z-index: 9999;
+      font-size: 14px;
+      font-weight: 600;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+    `;
+    document.body.appendChild(toast);
+  }
 
-    scrollLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
+  toast.textContent = message;
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateY(0)';
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const navHeaderHeight = document.querySelector('header')?.offsetHeight || 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - navHeaderHeight;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-/**
- * 5. Checkout & Order Confirmation Modal
- */
-function initCheckoutModal() {
-    const checkoutBtn = document.getElementById('checkoutBtn');
-    const modal = document.getElementById('checkoutModal');
-    const closeModal = document.getElementById('closeModal');
-
-    if (checkoutBtn && modal) {
-        checkoutBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
-    }
-
-    if (closeModal && modal) {
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-    }
-
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
-}
-
-/**
- * 6. Falling Autumn Leaves Dynamic FX
- */
-function initAutumnLeavesAnimation() {
-    const leavesContainer = document.getElementById('fallingLeavesContainer');
-    if (!leavesContainer) return;
-
-    const leafSymbols = ['🍁', '🍂', '🍃', '🌰'];
-    const totalLeaves = 14;
-
-    for (let i = 0; i < totalLeaves; i++) {
-        const leaf = document.createElement('div');
-        leaf.className = 'leaf';
-        leaf.textContent = leafSymbols[Math.floor(Math.random() * leafSymbols.length)];
-        
-        // Randomize leaf animation timing and positioning
-        leaf.style.left = `${Math.random() * 100}%`;
-        leaf.style.animationDuration = `${6 + Math.random() * 8}s`;
-        leaf.style.animationDelay = `${Math.random() * 5}s`;
-        leaf.style.opacity = Math.random() * 0.7 + 0.3;
-        leaf.style.fontSize = `${16 + Math.random() * 16}px`;
-
-        leavesContainer.appendChild(leaf);
-    }
-}
-
-/**
- * Utility function for Toast Notifications
- */
-function showNotification(message) {
-    let toast = document.getElementById('toastNotification');
-    if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'toastNotification';
-        toast.style.cssText = `
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background-color: #6B1C1C;
-            color: #FFFFFF;
-            padding: 14px 24px;
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-            z-index: 9999;
-            font-family: sans-serif;
-            font-size: 14px;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform: translateY(20px);
-            opacity: 0;
-        `;
-        document.body.appendChild(toast);
-    }
-
-    toast.textContent = message;
-    toast.style.opacity = '1';
-    toast.style.transform = 'translateY(0)';
-
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateY(20px)';
-    }, 3500);
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+  }, 3000);
 }
