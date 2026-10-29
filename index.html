@@ -1,827 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Harvest Collection — Artisanal Coffee & Chocolates</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    :root {
-      --bg-cream: #F5E8DD;
-      --bg-card: #FFFFFF;
-      --maroon-primary: #6B1C1C;
-      --maroon-hover: #521414;
-      --brown-deep: #3A1A10;
-      --brown-warm: #4A2A18;
-      --amber-accent: #D98A58;
-      --terracotta: #C86D51;
-      --text-dark: #2A1810;
-      --text-muted: #6C5A50;
-      --border-subtle: #E8D6C8;
-      --shadow-sm: 0 4px 12px rgba(58, 26, 16, 0.06);
-      --shadow-lg: 0 16px 36px rgba(58, 26, 16, 0.12);
-      --radius: 16px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocolaterie Stam - Display Ad Layout Demo</title>
+    <style>
+        :root {
+            --bg-color: #fcfcfc;
+            --text-color: #333333;
+            --primary-accent: #7c221e;
+            --card-bg: #ffffff;
+            --border-color: #e0e0e0;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
 
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        header {
+            max-width: 1200px;
+            margin: 0 auto 30px auto;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
 
-    /* Falling Leaves Effect */
-    .leaves-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
+        h1 {
+            color: var(--primary-accent);
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
 
-    .leaf {
-      position: absolute;
-      top: -40px;
-      font-size: 20px;
-      opacity: 0.6;
-      animation: fall linear infinite;
-    }
+        p {
+            margin: 0;
+            color: #666;
+        }
 
-    @keyframes fall {
-      0% {
-        transform: translateY(0) rotate(0deg) translateX(0);
-        opacity: 0;
-      }
-      10% { opacity: 0.7; }
-      90% { opacity: 0.7; }
-      100% {
-        transform: translateY(105vh) rotate(360deg) translateX(50px);
-        opacity: 0;
-      }
-    }
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
 
-    /* Global Navigation */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(245, 232, 221, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-subtle);
-      z-index: 100;
-      padding: 1rem 2rem;
-    }
+        .ad-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
 
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        .ad-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary-accent);
+        }
 
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      color: var(--maroon-primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-    }
+        .ad-meta {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 15px;
+        }
 
-    .nav-links {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-    }
+        .ad-display-box {
+            background-color: #f0f0f0;
+            border: 1px dashed #999;
+            display: inline-block;
+            overflow: hidden;
+        }
 
-    .nav-item {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-weight: 600;
-      font-size: 0.95rem;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      transition: var(--transition);
-      cursor: pointer;
-    }
+        .ad-display-box img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
 
-    .nav-item:hover, .nav-item.active {
-      color: var(--maroon-primary);
-      background-color: rgba(107, 28, 28, 0.08);
-    }
+        /* Fixed dimension containers matching IAB standards */
+        .format-medium-rectangle {
+            width: 300px;
+            height: 250px;
+        }
 
-    .cart-btn {
-      background-color: var(--maroon-primary);
-      color: white;
-      border: none;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
+        .format-leaderboard {
+            width: 728px;
+            height: 90px;
+        }
 
-    .cart-btn:hover {
-      background-color: var(--maroon-hover);
-      transform: translateY(-2px);
-    }
+        .format-wide-skyscraper {
+            width: 160px;
+            height: 600px;
+        }
 
-    .cart-count {
-      background: var(--amber-accent);
-      color: white;
-      font-size: 0.75rem;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .format-half-page {
+            width: 300px;
+            height: 600px;
+        }
 
-    /* SPA Container Pages */
-    main {
-      flex: 1;
-      position: relative;
-      z-index: 1;
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 2rem 1rem 4rem;
-    }
-
-    .page-view {
-      display: none;
-      animation: fadeIn 0.4s ease forwards;
-    }
-
-    .page-view.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Main Banner Section (Ad Preview) */
-    .hero-banner-card {
-      background: white;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      border: 2px solid var(--border-subtle);
-      padding: 3rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 3rem;
-    }
-
-    .ad-pill {
-      display: inline-block;
-      background-color: var(--amber-accent);
-      color: white;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      margin-bottom: 1.5rem;
-    }
-
-    .banner-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      color: var(--maroon-primary);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      line-height: 1.2;
-      margin-bottom: 0.5rem;
-    }
-
-    .banner-subtitle {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--maroon-primary);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .banner-desc {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--maroon-primary);
-      letter-spacing: 1px;
-      font-weight: 600;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      text-transform: uppercase;
-    }
-
-    .ad-products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .ad-product-card {
-      background: var(--bg-cream);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius);
-      padding: 2rem;
-      cursor: pointer;
-      transition: var(--transition);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .ad-product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--terracotta);
-    }
-
-    .ad-product-img-wrapper {
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      font-size: 5rem;
-    }
-
-    .ad-click-tag {
-      margin-top: auto;
-      background: var(--maroon-primary);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      transition: var(--transition);
-    }
-
-    .ad-product-card:hover .ad-click-tag {
-      background: var(--amber-accent);
-    }
-
-    /* Product Page Specific Styles */
-    .product-page-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      background: white;
-      border-radius: var(--radius);
-      padding: 3rem;
-      box-shadow: var(--shadow-lg);
-    }
-
-    .product-hero-visual {
-      background: var(--bg-cream);
-      border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem;
-      font-size: 8rem;
-      position: relative;
-    }
-
-    .discount-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--maroon-primary);
-      color: white;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .product-details-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .product-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: var(--brown-deep);
-      margin-bottom: 0.5rem;
-    }
-
-    .price-tag {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--maroon-primary);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .price-tag .old-price {
-      text-decoration: line-through;
-      color: var(--text-muted);
-      font-size: 1.2rem;
-      font-weight: 400;
-    }
-
-    .product-description {
-      color: var(--text-muted);
-      margin-bottom: 2rem;
-      font-size: 1.05rem;
-    }
-
-    .option-selector {
-      margin-bottom: 2rem;
-    }
-
-    .option-selector label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .select-box {
-      width: 100%;
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      border: 1px solid var(--border-subtle);
-      background: white;
-      font-family: inherit;
-      font-size: 1rem;
-      color: var(--text-dark);
-      outline: none;
-    }
-
-    .action-btn-group {
-      display: flex;
-      gap: 1rem;
-    }
-
-    .primary-btn {
-      flex: 1;
-      background-color: var(--maroon-primary);
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: var(--transition);
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .primary-btn:hover {
-      background-color: var(--maroon-hover);
-      transform: translateY(-2px);
-    }
-
-    .back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .back-btn:hover {
-      color: var(--maroon-primary);
-    }
-
-    /* Cart Drawer */
-    .cart-drawer-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 200;
-      opacity: 0;
-      pointer-events: none;
-      transition: var(--transition);
-    }
-
-    .cart-drawer-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: -420px;
-      width: 100%;
-      max-width: 400px;
-      height: 100%;
-      background: white;
-      z-index: 201;
-      transition: var(--transition);
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-    }
-
-    .cart-drawer.open {
-      right: 0;
-    }
-
-    .cart-drawer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .close-cart {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-muted);
-    }
-
-    .cart-items-list {
-      flex: 1;
-      overflow-y: auto;
-      padding: 1rem 0;
-    }
-
-    .cart-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .cart-drawer-footer {
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    @media (max-width: 768px) {
-      .product-page-layout {
-        grid-template-columns: 1fr;
-        padding: 1.5rem;
-      }
-      .banner-title { font-size: 2rem; }
-      .banner-subtitle { font-size: 1.5rem; }
-      .nav-links { display: none; }
-    }
-  </style>
+        /* Responsive handling for small screens to prevent layout breaking */
+        @media (max-width: 768px) {
+            .format-leaderboard {
+                width: 100%;
+                max-width: 728px;
+                height: auto;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Background Falling Autumn Leaves -->
-  <div class="leaves-container" id="leavesContainer"></div>
+    <header>
+        <h1>Chocolaterie Stam — Harvest Collection Ad Placements</h1>
+        <p>A production environment mock preview demonstrating standard IAB ad dimensions and live aspect fitting.</p>
+    </header>
 
-  <!-- Header Navigation -->
-  <header>
-    <div class="header-inner">
-      <div class="logo" data-page="home">
-        🍁 Harvest Collection
-      </div>
-      <nav class="nav-links">
-        <a class="nav-item active" data-page="home">Ad Main</a>
-        <a class="nav-item" data-page="chocolates">Chocolates Ad</a>
-        <a class="nav-item" data-page="coffee">Coffee Beans Ad</a>
-        <a class="nav-item" data-page="bundle">Full Harvest Bundle</a>
-      </nav>
-      <button class="cart-btn" id="openCartBtn">
-        🛒 Cart <span class="cart-count" id="cartBadge">0</span>
-      </button>
-    </div>
-  </header>
+    <div class="main-container">
 
-  <main>
-    <!-- PAGE 1: MAIN HARVEST COLLECTION BANNER AD PAGE -->
-    <section id="home" class="page-view active">
-      <div class="hero-banner-card">
-        <span class="ad-pill">Limited Seasonal Offer</span>
-        <h1 class="banner-title">Harvest Collection</h1>
-        <div class="banner-subtitle">20% OFF</div>
-        <p class="banner-desc">When you purchase a bag of artisanal coffee beans</p>
-        
-        <p style="color: var(--text-muted); margin-bottom: 1rem; font-style: italic;">
-          Click any product below in the ad banner to open its dedicated promo landing page:
-        </p>
-
-        <div class="ad-products-grid">
-          <!-- Clickable Product 1: Chocolate Box -->
-          <div class="ad-product-card" data-page="chocolates">
-            <div class="ad-product-img-wrapper">🎁</div>
-            <h3 style="font-family: 'Playfair Display'; color: var(--maroon-primary); font-size: 1.4rem;">
-              Harvest Truffle Box
-            </h3>
-            <p style="color: var(--text-muted); margin: 0.5rem 0 1.5rem;">
-              Artisanal Handcrafted Truffles (9 Pieces)
-            </p>
-            <div class="ad-click-tag">View Truffles Ad Page →</div>
-          </div>
-
-          <!-- Clickable Product 2: Coffee Beans -->
-          <div class="ad-product-card" data-page="coffee">
-            <div class="ad-product-img-wrapper">☕</div>
-            <h3 style="font-family: 'Playfair Display'; color: var(--maroon-primary); font-size: 1.4rem;">
-              Autumn Roast Coffee
-            </h3>
-            <p style="color: var(--text-muted); margin: 0.5rem 0 1.5rem;">
-              100% Arabica Single-Origin Beans (12 oz)
-            </p>
-            <div class="ad-click-tag">View Coffee Ad Page →</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE 2: CHOCOLATE TRUFFLES AD LANDING PAGE -->
-    <section id="chocolates" class="page-view">
-      <a class="back-btn" data-page="home">← Back to Main Harvest Ad</a>
-      <div class="product-page-layout">
-        <div class="product-hero-visual">
-          <span class="discount-badge">20% OFF WITH COFFEE</span>
-          🎁
-        </div>
-        <div class="product-details-content">
-          <span class="ad-pill">Harvest Collection Exclusive</span>
-          <h1 class="product-title">Harvest Truffle Selection Box</h1>
-          <div class="price-tag">
-            $22.40 <span class="old-price">$28.00</span>
-          </div>
-          <p class="product-description">
-            Hand-crafted dark and milk chocolate truffles infused with seasonal fall spices, hazelnut praline, and salted caramel. Get 20% off when paired with any bag of coffee beans!
-          </p>
-          <div class="option-selector">
-            <label>Select Box Size</label>
-            <select class="select-box">
-              <option>9-Piece Deluxe Gift Box ($22.40)</option>
-              <option>16-Piece Harvest Party Box ($36.00)</option>
-            </select>
-          </div>
-          <div class="action-btn-group">
-            <button class="primary-btn" onclick="addToCart('Harvest Truffle Selection Box', 22.40)">
-              Add To Order
-            </button>
-            <button class="primary-btn" style="background: var(--brown-warm);" data-page="bundle">
-              Build Bundle
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE 3: COFFEE BEANS AD LANDING PAGE -->
-    <section id="coffee" class="page-view">
-      <a class="back-btn" data-page="home">← Back to Main Harvest Ad</a>
-      <div class="product-page-layout">
-        <div class="product-hero-visual">
-          <span class="discount-badge" style="background: var(--amber-accent);">QUALIFIES FOR 20% OFF TRUFFLES</span>
-          ☕
-        </div>
-        <div class="product-details-content">
-          <span class="ad-pill">Single Origin Special</span>
-          <h1 class="product-title">Autumn Harvest Single-Origin Coffee Beans</h1>
-          <div class="price-tag">$18.50</div>
-          <p class="product-description">
-            Medium-dark roast featuring tasting notes of toasted pecan, dark chocolate, and spiced maple syrup. Purchasing this bag unlocks 20% off all Harvest Collection Chocolates.
-          </p>
-          <div class="option-selector">
-            <label>Grind Type</label>
-            <select class="select-box">
-              <option>Whole Bean</option>
-              <option>Coarse (French Press)</option>
-              <option>Medium (Drip Coffee)</option>
-              <option>Fine (Espresso)</option>
-            </select>
-          </div>
-          <div class="action-btn-group">
-            <button class="primary-btn" onclick="addToCart('Autumn Harvest Coffee Beans', 18.50)">
-              Add Bag To Order
-            </button>
-            <button class="primary-btn" style="background: var(--amber-accent);" data-page="chocolates">
-              Claim 20% Truffles →
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE 4: COMBINED HARVEST BUNDLE PAGE -->
-    <section id="bundle" class="page-view">
-      <a class="back-btn" data-page="home">← Back to Main Harvest Ad</a>
-      <div class="product-page-layout">
-        <div class="product-hero-visual" style="font-size: 5rem;">
-          <div>☕ + 🎁</div>
-        </div>
-        <div class="product-details-content">
-          <span class="ad-pill">Best Value Bundle</span>
-          <h1 class="product-title">The Complete Harvest Pairing</h1>
-          <div class="price-tag">
-            $35.30 <span class="old-price">$40.90</span>
-          </div>
-          <p class="product-description">
-            Includes 1 Bag of Autumn Harvest Coffee Beans ($18.50) + 1 Harvest Truffle Box ($22.40 with 20% promotional discount applied automatically).
-          </p>
-          <button class="primary-btn" onclick="addToCart('Complete Harvest Pairing Bundle', 35.30)" style="width: 100%;">
-            Add Complete Bundle To Cart ($35.30)
-          </button>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Cart Slide-over Drawer -->
-  <div class="cart-drawer-overlay" id="cartOverlay"></div>
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer-header">
-      <h2>Your Cart</h2>
-      <button class="close-cart" id="closeCartBtn">&times;</button>
-    </div>
-    <div class="cart-items-list" id="cartList">
-      <p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Your cart is currently empty.</p>
-    </div>
-    <div class="cart-drawer-footer">
-      <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem;">
-        <span>Total:</span>
-        <span id="cartTotal">$0.00</span>
-      </div>
-      <button class="primary-btn" style="width: 100%;" onclick="alert('Proceeding to Checkout!')">
-        Checkout Now
-      </button>
-    </div>
-  </div>
-
-  <!-- JavaScript Router & App Logic -->
-  <script>
-    let cart = [];
-
-    document.addEventListener('DOMContentLoaded', () => {
-      initRouter();
-      initLeaves();
-      initCartDrawer();
-    });
-
-    // SPA Page Router Logic
-    function initRouter() {
-      function navigateTo(pageId) {
-        document.querySelectorAll('.page-view').forEach(view => {
-          view.classList.remove('active');
-        });
-
-        const targetView = document.getElementById(pageId) || document.getElementById('home');
-        targetView.classList.add('active');
-
-        document.querySelectorAll('.nav-item').forEach(nav => {
-          if (nav.getAttribute('data-page') === pageId) {
-            nav.classList.add('active');
-          } else {
-            nav.classList.remove('active');
-          }
-        });
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        history.pushState(null, null, `#${pageId}`);
-      }
-
-      // Intercept click on any element with data-page attribute
-      document.body.addEventListener('click', (e) => {
-        const trigger = e.target.closest('[data-page]');
-        if (trigger) {
-          e.preventDefault();
-          const pageTarget = trigger.getAttribute('data-page');
-          navigateTo(pageTarget);
-        }
-      });
-
-      // Handle browser back/forward buttons
-      window.addEventListener('popstate', () => {
-        const hash = window.location.hash.replace('#', '') || 'home';
-        navigateTo(hash);
-      });
-
-      // Initial route setup
-      const initialHash = window.location.hash.replace('#', '') || 'home';
-      navigateTo(initialHash);
-    }
-
-    // Dynamic Cart Operations
-    function addToCart(title, price) {
-      cart.push({ title, price });
-      updateCartUI();
-      openCart();
-    }
-
-    function updateCartUI() {
-      const cartBadge = document.getElementById('cartBadge');
-      const cartList = document.getElementById('cartList');
-      const cartTotal = document.getElementById('cartTotal');
-
-      cartBadge.textContent = cart.length;
-
-      if (cart.length === 0) {
-        cartList.innerHTML = `<p style="color: var(--text-muted); text-align: center; margin-top: 2rem;">Your cart is currently empty.</p>`;
-        cartTotal.textContent = `$0.00`;
-        return;
-      }
-
-      let total = 0;
-      cartList.innerHTML = cart.map((item, index) => {
-        total += item.price;
-        return `
-          <div class="cart-item">
-            <div>
-              <strong style="display: block; color: var(--brown-deep);">${item.title}</strong>
-              <span style="color: var(--maroon-primary); font-weight: 600;">$${item.price.toFixed(2)}</span>
+        <!-- Ad Format #2: Leaderboard -->
+        <section class="ad-section">
+            <div class="ad-title">Ad Format #2: Leaderboard</div>
+            <div class="ad-meta">Dimensions: 728 x 90 px — Typically utilized at the top or bottom of desktop page headers.</div>
+            <div class="ad-display-box format-leaderboard">
+                <a href="#" target="_blank">
+                    <img src="image_Ujw0Zl.png" alt="Chocolaterie Stam Harvest Collection Leaderboard Ad - 20% off with purchase of coffee beans">
+                </a>
             </div>
-            <button onclick="removeFromCart(${index})" style="background: none; border: none; color: #c00; cursor: pointer;">Remove</button>
-          </div>
-        `;
-      }).join('');
+        </section>
 
-      cartTotal.textContent = `$${total.toFixed(2)}`;
-    }
+        <!-- Ad Format #1: Medium Rectangle -->
+        <section class="ad-section">
+            <div class="ad-title">Ad Format #1: Medium Rectangle</div>
+            <div class="ad-meta">Dimensions: 300 x 250 px — Commonly inline with text content or anchored inside a standard sidebar grid.</div>
+            <div class="ad-display-box format-medium-rectangle">
+                <a href="#" target="_blank">
+                    <img src="image_6izNGd.png" alt="Chocolaterie Stam Harvest Collection Medium Rectangle Ad - 20% off with purchase of coffee beans">
+                </a>
+            </div>
+        </section>
 
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartUI();
-    }
+        <!-- Ad Format #3: Wide Skyscraper -->
+        <section class="ad-section">
+            <div class="ad-title">Ad Format #3: Wide Skyscraper</div>
+            <div class="ad-meta">Dimensions: 160 x 600 px — Placed along extreme left or right structural margin columns.</div>
+            <div class="ad-display-box format-wide-skyscraper">
+                <a href="#" target="_blank">
+                    <img src="image_UEB6Pt.png" alt="Chocolaterie Stam Harvest Collection Wide Skyscraper Ad - 20% off with purchase of coffee beans">
+                </a>
+            </div>
+        </section>
 
-    // Cart Drawer Toggle logic
-    function initCartDrawer() {
-      const openBtn = document.getElementById('openCartBtn');
-      const closeBtn = document.getElementById('closeCartBtn');
-      const overlay = document.getElementById('cartOverlay');
+        <!-- Ad Format #4: Half Page -->
+        <section class="ad-section">
+            <div class="ad-title">Ad Format #4: Half Page</div>
+            <div class="ad-meta">Dimensions: 300 x 600 px — High impact premium slot targeting deeper sidebar columns.</div>
+            <div class="ad-display-box format-half-page">
+                <a href="#" target="_blank">
+                    <img src="image_So_FdN.png" alt="Chocolaterie Stam Harvest Collection Half Page Ad - 20% off with purchase of coffee beans">
+                </a>
+            </div>
+        </section>
 
-      openBtn.addEventListener('click', openCart);
-      closeBtn.addEventListener('click', closeCart);
-      overlay.addEventListener('click', closeCart);
-    }
+    </div>
 
-    function openCart() {
-      document.getElementById('cartDrawer').classList.add('open');
-      document.getElementById('cartOverlay').classList.add('active');
-    }
-
-    function closeCart() {
-      document.getElementById('cartDrawer').classList.remove('open');
-      document.getElementById('cartOverlay').classList.remove('active');
-    }
-
-    // Falling Autumn Leaves Animation generator
-    function initLeaves() {
-      const container = document.getElementById('leavesContainer');
-      const icons = ['🍁', '🍂', '🍃'];
-      
-      for (let i = 0; i < 15; i++) {
-        const leaf = document.createElement('div');
-        leaf.className = 'leaf';
-        leaf.textContent = icons[Math.floor(Math.random() * icons.length)];
-        leaf.style.left = `${Math.random() * 100}%`;
-        leaf.style.animationDuration = `${6 + Math.random() * 8}s`;
-        leaf.style.animationDelay = `${Math.random() * 5}s`;
-        container.appendChild(leaf);
-      }
-    }
-  </script>
 </body>
 </html>
