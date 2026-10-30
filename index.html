@@ -120,7 +120,7 @@
 
             <!-- Action Button -->
             <div class="flex items-center space-x-4">
-                <button onclick="navigateToAdView('Header CTA')" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-stam-terracotta hover:bg-stam-terracotta-hover text-white font-serif font-bold text-sm uppercase tracking-wide shadow-md transition-colors">
+                <button onclick="navigateToAdView('Header CTA')" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-stam-terracotta hover:bg-stam-terracotta-hover text-stam-dark font-serif font-extrabold tracking-wider text-sm transition-colors duration-200 shadow-md">
                     <i class="fa-solid fa-tag mr-2 text-xs"></i> Claim 20% Off
                 </button>
                 <!-- Mobile Menu Button -->
@@ -135,7 +135,8 @@
             <a href="#harvest-collection" onclick="showMainView(); toggleMobileMenu();" class="block text-stam-cream hover:text-stam-terracotta py-2 border-b border-stam-deep/50 font-medium">Harvest Collection</a>
             <a href="#coffee-pairing" onclick="showMainView(); toggleMobileMenu();" class="block text-stam-cream hover:text-stam-terracotta py-2 border-b border-stam-deep/50 font-medium">Coffee Beans</a>
             <a href="#artisan-story" onclick="showMainView(); toggleMobileMenu();" class="block text-stam-cream hover:text-stam-terracotta py-2 border-b border-stam-deep/50 font-medium">Our Story</a>
-            <button onclick="navigateToAdView('Mobile CTA'); toggleMobileMenu();" class="w-full text-center py-3 bg-stam-terracotta text-white font-serif font-bold rounded-xl mt-2">CLICK HERE TO CLAIM OFFER</button>
+            <a href="#locations" onclick="showMainView(); toggleMobileMenu();" class="block text-stam-cream hover:text-stam-terracotta py-2 border-b border-stam-deep/50 font-medium">Locations</a>
+            <button onclick="navigateToAdView('Mobile CTA'); toggleMobileMenu();" class="w-full text-center py-3 bg-stam-terracotta text-white font-serif font-bold rounded-xl mt-2">CLICK HERE TO PURCHASE</button>
         </div>
     </header>
 
@@ -147,7 +148,7 @@
             <main class="lg:col-span-8 space-y-8">
 
                 <!-- MAIN PROMOTIONAL ADS BANNER (Clicking opens Ad Page) -->
-                <section onclick="navigateToAdView('Main Hero Ad')" class="ad-banner-shine bg-gradient-to-r from-stam-deep via-stam-crimson to-stam-deep rounded-2xl shadow-xl overflow-hidden text-white relative group cursor-pointer">
+                <section onclick="navigateToAdView('Main Hero Ad')" class="ad-banner-shine bg-gradient-to-r from-stam-deep via-stam-crimson to-stam-deep rounded-2xl shadow-xl overflow-hidden text-white cursor-pointer group">
                     <div class="absolute top-3 right-3 bg-stam-gold text-stam-dark text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider z-20 shadow-md">
                         <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Interactive Ad
                     </div>
@@ -186,7 +187,7 @@
                         </p>
 
                         <!-- Call to Action Button exact wording from image 2 -->
-                        <span class="inline-block bg-stam-terracotta group-hover:bg-stam-terracotta-hover text-stam-dark font-serif font-extrabold text-base sm:text-lg tracking-widest px-8 py-4 rounded-full shadow-lg transition-colors duration-200">
+                        <span class="inline-block bg-stam-terracotta group-hover:bg-stam-terracotta-hover text-stam-dark font-serif font-extrabold text-base sm:text-lg tracking-widest px-8 py-4 rounded-full shadow-lg transition-all duration-300">
                             <i class="fa-solid fa-basket-shopping mr-2 text-stam-dark"></i> CLICK HERE TO PURCHASE
                         </span>
                         
@@ -210,11 +211,10 @@
                     <!-- Text section starting with wireframe Drop Cap "T" -->
                     <div class="text-stam-dark/90 leading-relaxed space-y-4 text-base sm:text-lg">
                         <p class="drop-cap">
-                            The tradition of fine Dutch-Belgian chocolatier craft comes alive as crispy autumn leaves blanket our cobblestone courtyard. At Chocolaterie Stam, our passion extends beyond confectionery into the art of roasted coffee, where each bean is selected for its aroma, structure, and soul.
+                            The tradition of fine Dutch-Belgian chocolatier craft comes alive as crispy autumn leaves blanket our cobblestone courtyard. At Chocolaterie Stam, our passion extends beyond handcrafted chocolates and into the precise alchemy of premium coffee roasting.
                         </p>
                         <p>
-                            Our master chocolatiers have hand-selected warm seasonal spices—cinnamon, roasted hazelnuts, caramelized pumpkin praline, and nutmeg—to curate this year's celebratory collection. The result is a sensory experience that pairs exquisitely with small-batch espresso and café-style brews served fresh each morning.
-                        </p>
+                            Our master chocolatiers have hand-selected warm seasonal spices—cinnamon, roasted hazelnuts, caramelized pumpkin praline, and nutmeg—to curate this year's celebratory Harvest Collection. Paired with our small-batch roasted Arabica beans, each bite and sip tells a story of heritage, warmth, and luxury.                        </p>
                     </div>
                 </article>
 
@@ -230,7 +230,7 @@
                             <p class="text-xs text-stam-cream/90">Click to view complete bundle deals & roasted bean options</p>
                         </div>
                     </div>
-                    <span class="whitespace-nowrap bg-stam-dark group-hover:bg-black text-stam-cream font-serif font-bold text-xs uppercase px-5 py-3 rounded-lg border border-stam-gold transition-colors">
+                    <span class="whitespace-nowrap bg-stam-dark group-hover:bg-black text-stam-cream font-serif font-bold text-xs uppercase px-5 py-3 rounded-lg border border-stam-gold transition-colors duration-200">
                         View Offer Page <i class="fa-solid fa-arrow-right ml-1"></i>
                     </span>
                 </div>
@@ -263,8 +263,7 @@
                                 Why Coffee Beans & Chocolates Belong Together
                             </h3>
                             <p class="text-stam-dark/80 text-sm leading-relaxed">
-                                The natural acidity and deep undertones of roasted Arabica beans cut through the velvet cocoa richness of Dutch pralines. When you purchase any 12oz bag of our signature coffee, you unlock a tailored 20% savings on every Harvest Collection chocolate pairing.
-                            </p>
+                                The natural acidity and deep undertones of roasted Arabica beans cut through the velvet cocoa richness of Dutch pralines. When you purchase any 12oz bag of our signature roast, the Harvest Collection 20% discount is automatically applied at checkout.                            </p>
                             <ul class="text-xs text-stam-dark/90 space-y-2 pt-2">
                                 <li class="flex items-center">
                                     <i class="fa-solid fa-circle-check text-stam-terracotta mr-2"></i>
@@ -287,10 +286,10 @@
                 <section class="bg-stam-card rounded-2xl p-6 sm:p-8 shadow-sm border border-stam-border space-y-4">
                     <h3 class="font-serif text-xl font-bold text-stam-dark">A Century of Dutch Excellence</h3>
                     <p class="text-stam-dark/80 text-sm leading-relaxed">
-                        Since establishing our first shop in 1913, Chocolaterie Stam has maintained an unwavering dedication to quality. We source cocoa from sustainable farms and roast our coffee in small batches to preserve aroma, flavor, and character.
+                        Since establishing our first shop in 1913, Chocolaterie Stam has maintained an unwavering dedication to quality. We source cocoa from sustainable farms and roast our coffee in small batches to preserve the richness and aroma that define the true Dutch-Belgian artisan tradition.
                     </p>
                     <p class="text-stam-dark/80 text-sm leading-relaxed">
-                        Whether you are shopping for a cozy autumn evening at home or looking for the ideal holiday gift for coffee lovers, our Harvest Collection brings warmth, luxury, and unmistakable craftsmanship to every cup and every bite.
+                        Whether you are shopping for a cozy autumn evening at home or looking for the ideal holiday gift for coffee lovers, our Harvest Collection brings warmth, luxury, and unmistakable finesse to every table.
                     </p>
                 </section>
 
@@ -299,7 +298,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
                         
                         <!-- Bottom Left Ad Card (Clickable) -->
-                        <div onclick="navigateToAdView('Bottom Sidebar Ad Unit')" class="md:col-span-5 bg-stam-deep text-white p-6 rounded-xl shadow-md text-center border border-stam-gold relative group cursor-pointer">
+                        <div onclick="navigateToAdView('Bottom Sidebar Ad Unit')" class="md:col-span-5 bg-stam-deep text-white p-6 rounded-xl shadow-md text-center border border-stam-gold relative cursor-pointer group">
                             <span class="absolute top-2 right-2 bg-stam-gold text-stam-dark font-extrabold text-[10px] uppercase px-2 py-0.5 rounded">
                                 SAVE 20%
                             </span>
@@ -339,7 +338,7 @@
                 <div class="bg-stam-card p-4 rounded-xl shadow-sm border border-stam-border">
                     <label for="search-input" class="sr-only">Search Chocolates or Coffee</label>
                     <div class="relative">
-                        <input type="text" id="search-input" placeholder="Search coffee beans, truffles..." class="w-full pl-4 pr-10 py-3 rounded-lg bg-white border border-stam-border text-xs text-stam-dark placeholder:text-stam-dark/40 focus:outline-none focus:ring-1 focus:ring-stam-terracotta">
+                        <input type="text" id="search-input" placeholder="Search coffee beans, truffles..." class="w-full pl-4 pr-10 py-3 rounded-lg bg-white border border-stam-border text-xs text-stam-dark placeholder-stam-dark/40 focus:outline-none focus:ring-2 focus:ring-stam-terracotta/50">
                         <button class="absolute right-3 top-1/2 -translate-y-1/2 text-stam-terracotta hover:text-stam-crimson transition-colors p-1" aria-label="Search">
                             <i class="fa-solid fa-magnifying-glass text-base"></i>
                         </button>
@@ -449,7 +448,7 @@
                         <p class="text-[11px] text-stam-dark/70">Subscribe to receive exclusive seasonal discounts & event invitations.</p>
                         <form onsubmit="event.preventDefault(); triggerNotification('Thank you for subscribing to Chocolaterie Stam!');" class="space-y-2">
                             <input type="email" placeholder="Enter your email" required class="w-full px-3 py-2 text-xs rounded bg-white border border-stam-border focus:outline-none focus:ring-1 focus:ring-stam-terracotta">
-                            <button type="submit" class="w-full py-2 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded uppercase tracking-wider transition-colors">
+                            <button type="submit" class="w-full py-2 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded uppercase tracking-wider transition-colors duration-200">
                                 Subscribe
                             </button>
                         </form>
@@ -476,7 +475,7 @@
                 <span id="adSourceTag" class="text-stam-dark font-serif font-bold">Landing Page</span>
             </div>
 
-            <button onclick="showMainView()" class="inline-flex items-center px-4 py-2 bg-stam-deep hover:bg-stam-dark text-stam-cream text-xs font-serif font-bold rounded-full shadow transition-colors">
+            <button onclick="showMainView()" class="inline-flex items-center px-4 py-2 bg-stam-deep hover:bg-stam-dark text-stam-cream text-xs font-serif font-bold rounded-full shadow transition-colors duration-200">
                 <i class="fa-solid fa-arrow-left mr-2"></i> Back to Main Website
             </button>
         </div>
@@ -511,7 +510,7 @@
                     </div>
 
                     <p class="text-sm sm:text-base text-stam-cream/90 leading-relaxed font-sans max-w-2xl">
-                        Congratulations! By clicking our autumn ad campaign, your 20% Harvest Collection voucher has been automatically unlocked. Choose your coffee roast below and bundle with our seasonal chocolates for the perfect pairing.
+                        Congratulations! By clicking our autumn ad campaign, your 20% Harvest Collection voucher has been automatically unlocked. Choose your coffee roast below and bundle with our artisan chocolates for a limited-time seasonal deal.
                     </p>
 
                     <!-- Promo Code Box -->
@@ -520,58 +519,17 @@
                             <span class="block text-[10px] text-stam-cream/70 uppercase tracking-widest">Promo Code Applied</span>
                             <span class="font-mono font-bold text-xl text-stam-gold tracking-widest">HARVEST20</span>
                         </div>
-                        <button onclick="copyPromoCode()" class="w-full sm:w-auto px-4 py-2 bg-stam-terracotta hover:bg-stam-terracotta-hover text-white text-xs font-serif font-bold uppercase rounded-lg shadow transition-colors">
+                        <button onclick="copyPromoCode()" class="w-full sm:w-auto px-4 py-2 bg-stam-terracotta hover:bg-stam-terracotta-hover text-white text-xs font-serif font-bold uppercase rounded-lg transition-colors duration-200">
                             <i class="fa-solid fa-copy mr-1"></i> Copy Code
                         </button>
                     </div>
                 </div>
 
-                <!-- Right Countdown Timer & Checkout Card -->
-                <div class="lg:col-span-5 bg-stam-cream text-stam-dark p-6 sm:p-8 rounded-2xl shadow-xl border-2 border-stam-gold space-y-6">
-                    <div class="text-center border-b border-stam-border pb-4">
-                        <span class="text-xs font-bold text-stam-crimson uppercase tracking-wider block">Limited Time Offer Closes In</span>
-                        
-                        <!-- Countdown Timer Display -->
-                        <div class="flex justify-center space-x-3 my-3">
-                            <div class="bg-stam-dark text-stam-cream p-2.5 rounded-lg min-w-[55px]">
-                                <span id="timerHours" class="font-serif font-bold text-xl block">18</span>
-                                <span class="text-[9px] uppercase tracking-wider text-stam-gold">Hours</span>
-                            </div>
-                            <div class="bg-stam-dark text-stam-cream p-2.5 rounded-lg min-w-[55px]">
-                                <span id="timerMinutes" class="font-serif font-bold text-xl block">42</span>
-                                <span class="text-[9px] uppercase tracking-wider text-stam-gold">Mins</span>
-                            </div>
-                            <div class="bg-stam-dark text-stam-cream p-2.5 rounded-lg min-w-[55px]">
-                                <span id="timerSeconds" class="font-serif font-bold text-xl block">15</span>
-                                <span class="text-[9px] uppercase tracking-wider text-stam-gold">Secs</span>
-                            </div>
-                        </div>
-                        <p class="text-[11px] text-stam-dark/70">Offer valid for direct ad visitors only</p>
-                    </div>
-
-                    <!-- Step-by-Step Instructions -->
-                    <div class="space-y-3 text-xs">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 rounded-full bg-stam-crimson text-white font-bold flex items-center justify-center shrink-0">1</div>
-                            <span>Select your favorite bag of coffee beans</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 rounded-full bg-stam-crimson text-white font-bold flex items-center justify-center shrink-0">2</div>
-                            <span>Choose your Harvest Chocolate Truffle box</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 rounded-full bg-stam-crimson text-white font-bold flex items-center justify-center shrink-0">3</div>
-                            <span>20% discount is applied automatically at checkout</span>
-                        </div>
-                    </div>
-
-                    <button onclick="triggerNotification('Selected bundle added to bag! Code HARVEST20 applied.')" class="w-full py-4 bg-stam-terracotta hover:bg-stam-terracotta-hover text-white font-serif font-bold text-base rounded-xl shadow transition-colors">
-                        <i class="fa-solid fa-basket-shopping mr-2"></i> Claim Bundle Offer Now
-                    </button>
-
-                    <button onclick="showMainView()" class="w-full text-center text-xs text-stam-dark/70 hover:text-stam-crimson underline">
-                        Or return to browse full catalog
-                    </button>
+                <!-- Right Image Box (replaces countdown / limited time offer) -->
+                <div class="lg:col-span-5 bg-stam-cream text-stam-dark rounded-2xl shadow-xl border-2 border-stam-gold overflow-hidden min-h-[420px]">
+                    <a href="#" onclick="showMainView(); return false;" class="group block w-full h-full relative overflow-hidden" aria-label="Return to landing page">
+                        <img src="https://github.com/user-attachments/assets/e0516761-9743-415d-b822-45f6283e2a67" alt="Harvest Collection offer image" class="w-full h-full object-cover block transition-transform duration-300 group-hover:scale-[1.01]" />
+                    </a>
                 </div>
 
             </div>
@@ -601,7 +559,7 @@
                             <span class="text-xs line-through text-stam-dark/40">$42.00</span>
                             <span class="font-serif font-extrabold text-lg text-stam-crimson">$33.60 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span>
                         </div>
-                        <button onclick="triggerNotification('Added Espresso & Truffle Pair to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded-lg uppercase tracking-wider transition-colors">
+                        <button onclick="triggerNotification('Added Espresso & Truffle Pair to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-sm uppercase rounded-lg transition-colors duration-200">
                             Select Bundle
                         </button>
                     </div>
@@ -622,7 +580,7 @@
                             <span class="text-xs line-through text-stam-dark/40">$46.00</span>
                             <span class="font-serif font-extrabold text-lg text-stam-crimson">$36.80 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span>
                         </div>
-                        <button onclick="triggerNotification('Added Spiced Reserve Bundle to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded-lg uppercase tracking-wider transition-colors">
+                        <button onclick="triggerNotification('Added Spiced Reserve Bundle to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-sm uppercase rounded-lg transition-colors duration-200">
                             Select Bundle
                         </button>
                     </div>
@@ -643,7 +601,7 @@
                             <span class="text-xs line-through text-stam-dark/40">$75.00</span>
                             <span class="font-serif font-extrabold text-lg text-stam-crimson">$60.00 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span>
                         </div>
-                        <button onclick="triggerNotification('Added Grand Harvest Sampler to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded-lg uppercase tracking-wider transition-colors">
+                        <button onclick="triggerNotification('Added Grand Harvest Sampler to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-sm uppercase rounded-lg transition-colors duration-200">
                             Select Bundle
                         </button>
                     </div>
@@ -732,10 +690,12 @@
 
     <!-- Interactive Notification Banner JS -->
     <div id="toastNotification" class="fixed bottom-5 right-5 bg-stam-deep text-white border-2 border-stam-gold px-5 py-3 rounded-xl shadow-2xl z-50 transform translate-y-32 opacity-0 transition-all duration-300">
-        <i class="fa-solid fa-circle-check text-stam-gold text-xl"></i>
-        <div>
-            <h5 class="font-serif font-bold text-xs text-stam-cream">Chocolaterie Stam</h5>
-            <p id="toastMessage" class="text-xs text-stam-cream/90"></p>
+        <div class="flex items-start space-x-3">
+            <i class="fa-solid fa-circle-check text-stam-gold text-xl"></i>
+            <div>
+                <h5 class="font-serif font-bold text-xs text-stam-cream">Chocolaterie Stam</h5>
+                <p id="toastMessage" class="text-xs text-stam-cream/90"></p>
+            </div>
         </div>
     </div>
 
@@ -772,25 +732,6 @@
             document.body.removeChild(tempInput);
             triggerNotification('Promo code HARVEST20 copied to clipboard!');
         }
-
-        // Simple real-time countdown timer for offer urgency
-        let totalSeconds = 18 * 3600 + 42 * 60 + 15;
-        setInterval(() => {
-            if (totalSeconds > 0) {
-                totalSeconds--;
-                const hrs = Math.floor(totalSeconds / 3600);
-                const mins = Math.floor((totalSeconds % 3600) / 60);
-                const secs = totalSeconds % 60;
-
-                const hElem = document.getElementById('timerHours');
-                const mElem = document.getElementById('timerMinutes');
-                const sElem = document.getElementById('timerSeconds');
-
-                if (hElem) hElem.innerText = hrs < 10 ? '0' + hrs : hrs;
-                if (mElem) mElem.innerText = mins < 10 ? '0' + mins : mins;
-                if (sElem) sElem.innerText = secs < 10 ? '0' + secs : secs;
-            }
-        }, 1000);
 
         // Notification alert trigger
         function triggerNotification(msg) {
