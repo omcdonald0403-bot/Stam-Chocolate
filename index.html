@@ -46,7 +46,6 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        /* Custom Drop Cap Styling for Wireframe Section */
         .drop-cap::first-letter {
             font-family: 'Playfair Display', serif;
             font-size: 4.2rem;
@@ -59,7 +58,6 @@
             font-weight: 800;
         }
 
-        /* Subtle Autumn Leaf Float Animation */
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-8px) rotate(5deg); }
@@ -96,10 +94,8 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-stam-terracotta selection:text-white">
 
-    <!-- TOP HEADER / NAVIGATION BAR (Wireframe Block 1) -->
     <header class="w-full bg-stam-deep text-stam-cream shadow-md sticky top-0 z-50 border-b border-stam-gold/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo / Emblem -->
             <div onclick="showMainView()" class="flex items-center space-x-3 cursor-pointer group">
                 <div class="w-12 h-12 rounded-full bg-stam-cream flex items-center justify-center border-2 border-stam-gold shadow-inner group-hover:scale-105 transition-transform duration-300">
                     <i class="fa-solid font-serif text-stam-deep text-xl font-black">S</i>
@@ -110,7 +106,6 @@
                 </div>
             </div>
 
-            <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
                 <a href="#harvest-collection" onclick="showMainView()" class="hover:text-stam-terracotta transition-colors">Harvest Collection</a>
                 <a href="#coffee-pairing" onclick="showMainView()" class="hover:text-stam-terracotta transition-colors">Coffee Beans</a>
@@ -118,108 +113,70 @@
                 <a href="#locations" onclick="showMainView()" class="hover:text-stam-terracotta transition-colors">Locations</a>
             </nav>
 
-            <!-- Action Button -->
             <div class="flex items-center space-x-4">
-                <button onclick="navigateToAdView('Header CTA')" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-stam-terracotta hover:bg-stam-terracotta-hover text-stam-dark font-serif font-bold text-sm uppercase tracking-wide shadow-md transition-colors duration-300">
+                <button onclick="navigateToAdView('Header CTA')" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-stam-terracotta hover:bg-stam-terracotta-hover text-stam-cream font-serif font-bold text-sm tracking-wide transition-colors duration-200 shadow-sm">
                     <i class="fa-solid fa-tag mr-2 text-xs"></i> Claim 20% Off
                 </button>
-                <!-- Mobile Menu Button -->
                 <button onclick="toggleMobileMenu()" class="md:hidden text-stam-cream hover:text-stam-terracotta focus:outline-none p-2">
                     <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Navigation Drawer -->
         <div id="mobileMenu" class="hidden md:hidden bg-stam-dark border-t border-stam-deep px-4 pt-3 pb-6 space-y-3">
             <a href="#harvest-collection" onclick="showMainView(); toggleMobileMenu();" class="block text-stam-cream hover:text-stam-terracotta py-2 border-b border-stam-deep/50 font-medium">Harvest Collection</a>
             <a href="#coffee-pairing" onclick="showMainView(); toggleMobileMenu();" class="block text-stam-cream hover:text-stam-terracotta py-2 border-b border-stam-deep/50 font-medium">Coffee Beans</a>
             <a href="#artisan-story" onclick="showMainView(); toggleMobileMenu();" class="block text-stam-cream hover:text-stam-terracotta py-2 border-b border-stam-deep/50 font-medium">Our Story</a>
-            <button onclick="navigateToAdView('Mobile CTA'); toggleMobileMenu();" class="w-full text-center py-3 bg-stam-terracotta text-white font-serif font-bold rounded-xl mt-2">CLICK HERE TO CLAIM OFFER</button>
+            <button onclick="navigateToAdView('Mobile CTA'); toggleMobileMenu();" class="w-full text-center py-3 bg-stam-terracotta text-white font-serif font-bold rounded-xl mt-2">CLICK HERE TO CLAIM DISCOUNT</button>
         </div>
     </header>
 
-    <!-- VIEW 1: MAIN LANDING PAGE CONTAINER -->
     <div id="mainLandingPage" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            <!-- LEFT MAIN COLUMN (~70% / 8 Cols on Large Screens) -->
             <main class="lg:col-span-8 space-y-8">
-
-                <!-- MAIN PROMOTIONAL ADS BANNER (Clicking opens Ad Page) -->
-                <section onclick="navigateToAdView('Main Hero Ad')" class="ad-banner-shine bg-gradient-to-r from-stam-deep via-stam-crimson to-stam-deep rounded-2xl shadow-xl overflow-hidden text-white relative cursor-pointer group">
+                <section onclick="navigateToAdView('Main Hero Ad')" class="ad-banner-shine bg-gradient-to-r from-stam-deep via-stam-crimson to-stam-deep rounded-2xl shadow-xl overflow-hidden text-white cursor-pointer">
                     <div class="absolute top-3 right-3 bg-stam-gold text-stam-dark text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider z-20 shadow-md">
                         <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Interactive Ad
                     </div>
-
-                    <!-- Background Autumn Accents -->
                     <div class="absolute -top-6 -right-6 text-stam-terracotta/20 text-9xl pointer-events-none animate-float">
                         <i class="fa-solid fa-leaf"></i>
                     </div>
                     <div class="absolute -bottom-8 -left-6 text-stam-gold/15 text-8xl pointer-events-none">
                         <i class="fa-solid fa-mug-hot"></i>
                     </div>
-
                     <div class="relative z-10 p-6 sm:p-8 md:p-10 text-center">
-                        <!-- Brand Badge -->
                         <div class="inline-flex items-center space-x-2 bg-stam-cream/10 border border-stam-cream/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs uppercase tracking-widest text-stam-cream/90">
                             <i class="fa-solid fa-star text-xs"></i>
                             <span>Seasonal Autumn Special Announcement</span>
                             <i class="fa-solid fa-star text-xs"></i>
                         </div>
-
-                        <!-- Banner Main Title from Ad -->
-                        <h1 class="font-serif text-3xl sm:text-5xl font-black text-white tracking-wide uppercase mb-3 drop-shadow-md">
-                            HARVEST COLLECTION
-                        </h1>
-
-                        <!-- Big 20% Offer Badge -->
+                        <h1 class="font-serif text-3xl sm:text-5xl font-black text-white tracking-wide uppercase mb-3 drop-shadow-md">HARVEST COLLECTION</h1>
                         <div class="my-4">
-                            <span class="font-serif text-5xl sm:text-7xl font-extrabold text-stam-gold tracking-tight inline-block transform group-hover:scale-110 transition-transform duration-300">
-                                20% OFF
-                            </span>
+                            <span class="font-serif text-5xl sm:text-7xl font-extrabold text-stam-gold tracking-tight inline-block transform transition-transform duration-300">20% OFF</span>
                         </div>
-
-                        <!-- Sub-offer text from Ad -->
                         <p class="font-serif text-lg sm:text-2xl text-stam-cream/90 max-w-xl mx-auto font-medium leading-relaxed tracking-wide mb-6">
                             WHEN YOU PURCHASE A BAG OF FRESH ROASTED COFFEE BEANS
                         </p>
-
-                        <!-- Call to Action Button exact wording from image 2 -->
-                        <span class="inline-block bg-stam-terracotta group-hover:bg-stam-terracotta-hover text-stam-dark font-serif font-extrabold text-base sm:text-lg tracking-widest px-8 py-4 rounded-full shadow-lg transition-colors duration-300">
+                        <span class="inline-block bg-stam-terracotta text-stam-dark font-serif font-extrabold text-base sm:text-lg tracking-widest px-8 py-4 rounded-full shadow-md cursor-pointer">
                             <i class="fa-solid fa-basket-shopping mr-2 text-stam-dark"></i> CLICK HERE TO PURCHASE
                         </span>
-                        
-                        <p class="text-xs text-stam-cream/70 mt-3 font-sans">
-                            *Click banner anywhere to open full offer & coupon details.
-                        </p>
+                        <p class="text-xs text-stam-cream/70 mt-3 font-sans">*Click banner anywhere to open full offer & coupon details.</p>
                     </div>
                 </section>
 
-                <!-- ARTICLE SECTION WITH DROP-CAP "T" (Wireframe Element 2) -->
                 <article class="bg-stam-card rounded-2xl p-6 sm:p-8 shadow-sm border border-stam-border">
                     <div class="flex items-center justify-between border-b border-stam-border/60 pb-4 mb-6">
                         <span class="text-xs font-bold tracking-widest text-stam-crimson uppercase">Artisan Chocolatier & Espresso Journal</span>
                         <span class="text-xs text-stam-dark/60"><i class="fa-regular fa-clock mr-1"></i> Autumn 2026 Edition</span>
                     </div>
-
-                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stam-dark mb-4 leading-snug">
-                        The Symphony of Roasted Beans & Handcrafted Belgian Chocolates
-                    </h2>
-
-                    <!-- Text section starting with wireframe Drop Cap "T" -->
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stam-dark mb-4 leading-snug">The Symphony of Roasted Beans & Handcrafted Belgian Chocolates</h2>
                     <div class="text-stam-dark/90 leading-relaxed space-y-4 text-base sm:text-lg">
-                        <p class="drop-cap">
-                            The tradition of fine Dutch-Belgian chocolatier craft comes alive as crispy autumn leaves blanket our cobblestone courtyard. At Chocolaterie Stam, our passion extends beyond exquisite confections into the realm of premium coffee culture, where every roast tells a story of origin, craftsmanship, and patient perfection.
-                        </p>
-                        <p>
-                            Our master chocolatiers have hand-selected warm seasonal spices—cinnamon, roasted hazelnuts, caramelized pumpkin praline, and nutmeg—to curate this year's celebratory Harvest Collection. Designed to linger in memory as much as on the palate, each bite pairs effortlessly with the elegant complexity of our roasted beans, turning everyday rituals into seasonal traditions.
-                        </p>
+                        <p class="drop-cap">The tradition of fine Dutch-Belgian chocolatier craft comes alive as crispy autumn leaves blanket our cobblestone courtyard. At Chocolaterie Stam, our passion extends beyond the confectionery counter into a deeply rooted coffee culture that celebrates slow roasting, balanced extraction, and premium origin beans.</p>
+                        <p>Our master chocolatiers have hand-selected warm seasonal spices—cinnamon, roasted hazelnuts, caramelized pumpkin praline, and nutmeg—to curate this year's celebratory Harvest Collection. Pairings are designed to mirror the notes of each artisan roast, creating a layered tasting experience that feels both comforting and indulgent.</p>
                     </div>
                 </article>
 
-                <!-- MIDDLE AD BANNER SECTION ("Ads" in Wireframe - Clickable) -->
-                <div onclick="navigateToAdView('Middle Promo Banner')" class="bg-gradient-to-r from-stam-terracotta to-stam-crimson text-white rounded-xl p-4 sm:p-6 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4 cursor-pointer group">
+                <div onclick="navigateToAdView('Middle Promo Banner')" class="bg-gradient-to-r from-stam-terracotta to-stam-crimson text-white rounded-xl p-4 sm:p-6 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4 cursor-pointer hover:shadow-lg transition-shadow">
                     <div class="flex items-center space-x-4 mb-4 sm:mb-0">
                         <div class="bg-white/10 p-3 rounded-full text-stam-gold text-2xl group-hover:scale-110 transition-transform">
                             <i class="fa-solid fa-gift"></i>
@@ -230,16 +187,11 @@
                             <p class="text-xs text-stam-cream/90">Click to view complete bundle deals & roasted bean options</p>
                         </div>
                     </div>
-                    <span class="whitespace-nowrap bg-stam-dark group-hover:bg-black text-stam-cream font-serif font-bold text-xs uppercase px-5 py-3 rounded-lg border border-stam-gold transition-colors">
-                        View Offer Page <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </span>
+                    <span class="whitespace-nowrap bg-stam-dark text-stam-cream font-serif font-bold text-xs uppercase px-5 py-3 rounded-lg border border-stam-gold transition-colors">View Offer Page <i class="fa-solid fa-arrow-right ml-1"></i></span>
                 </div>
 
-                <!-- CONTENT BLOCK WITH IMAGE PLACEHOLDER LEFT & TEXT RIGHT (Wireframe Element 4) -->
                 <section id="coffee-pairing" class="bg-stam-card rounded-2xl p-6 sm:p-8 shadow-sm border border-stam-border">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                        
-                        <!-- Left Image Section (Representing Wireframe Image Box) -->
                         <div class="md:col-span-5 relative group overflow-hidden rounded-xl border-2 border-stam-border shadow-md">
                             <div class="w-full h-64 bg-gradient-to-br from-stam-deep via-stam-dark to-black flex flex-col items-center justify-center p-4 text-center text-stam-cream relative">
                                 <i class="fa-solid fa-mug-hot text-6xl text-stam-terracotta mb-3 group-hover:scale-110 transition-transform duration-300"></i>
@@ -250,103 +202,61 @@
                                 </div>
                                 <span class="font-serif font-bold text-lg text-stam-cream">Fresh Roasted Beans</span>
                                 <span class="text-xs text-stam-terracotta font-medium">& Artisan Chocolates</span>
-                                <div class="absolute top-3 left-3 bg-stam-terracotta text-white text-[10px] font-bold uppercase px-2 py-1 rounded">
-                                    Pairing Guide
-                                </div>
+                                <div class="absolute top-3 left-3 bg-stam-terracotta text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Pairing Guide</div>
                             </div>
                         </div>
-
-                        <!-- Right Text Content -->
                         <div class="md:col-span-7 space-y-3">
                             <span class="text-xs font-bold text-stam-terracotta uppercase tracking-wider">Perfect Seasonal Harmony</span>
-                            <h3 class="font-serif text-2xl font-bold text-stam-dark">
-                                Why Coffee Beans & Chocolates Belong Together
-                            </h3>
-                            <p class="text-stam-dark/80 text-sm leading-relaxed">
-                                The natural acidity and deep undertones of roasted Arabica beans cut through the velvet cocoa richness of Dutch pralines. When you purchase any 12oz bag of our signature roast, you're automatically eligible for our Harvest Collection 20% discount on curated chocolate pairings.
-                            </p>
+                            <h3 class="font-serif text-2xl font-bold text-stam-dark">Why Coffee Beans & Chocolates Belong Together</h3>
+                            <p class="text-stam-dark/80 text-sm leading-relaxed">The natural acidity and deep undertones of roasted Arabica beans cut through the velvet cocoa richness of Dutch pralines. When you purchase any 12oz bag of our signature blend, your Harvest Collection chocolate selection receives a built-in 20% savings at checkout.</p>
                             <ul class="text-xs text-stam-dark/90 space-y-2 pt-2">
-                                <li class="flex items-center">
-                                    <i class="fa-solid fa-circle-check text-stam-terracotta mr-2"></i>
-                                    <span>Small-batch artisanal roast coffee beans</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fa-solid fa-circle-check text-stam-terracotta mr-2"></i>
-                                    <span>Authentic bonbons handcrafted with pure Belgian cocoa</span>
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fa-solid fa-circle-check text-stam-terracotta mr-2"></i>
-                                    <span>Instant 20% Harvest Collection discount code applied</span>
-                                </li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-stam-terracotta mr-2"></i><span>Small-batch artisanal roast coffee beans</span></li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-stam-terracotta mr-2"></i><span>Authentic bonbons handcrafted with pure Belgian cocoa</span></li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-stam-terracotta mr-2"></i><span>Instant 20% Harvest Collection discount code applied</span></li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
-                <!-- BOTTOM TEXT PARAGRAPHS (Wireframe Element 5) -->
                 <section class="bg-stam-card rounded-2xl p-6 sm:p-8 shadow-sm border border-stam-border space-y-4">
                     <h3 class="font-serif text-xl font-bold text-stam-dark">A Century of Dutch Excellence</h3>
-                    <p class="text-stam-dark/80 text-sm leading-relaxed">
-                        Since establishing our first shop in 1913, Chocolaterie Stam has maintained an unwavering dedication to quality. We source cocoa from sustainable farms and roast our coffee beans in small batches to preserve the aromatic complexity that makes every cup memorable.
-                    </p>
-                    <p class="text-stam-dark/80 text-sm leading-relaxed">
-                        Whether you are shopping for a cozy autumn evening at home or looking for the ideal holiday gift for coffee lovers, our Harvest Collection brings warmth, luxury, and unforgettable flavor into every carefully crafted offering.
-                    </p>
+                    <p class="text-stam-dark/80 text-sm leading-relaxed">Since establishing our first shop in 1913, Chocolaterie Stam has maintained an unwavering dedication to quality. We source cocoa from sustainable farms and roast our coffee in small batches to preserve origin character and aroma.</p>
+                    <p class="text-stam-dark/80 text-sm leading-relaxed">Whether you are shopping for a cozy autumn evening at home or looking for the ideal holiday gift for coffee lovers, our Harvest Collection brings warmth, luxury, and unforgettable taste to every cup and every bite.</p>
                 </section>
 
-                <!-- BOTTOM LEFT AD BOX WITH TEXT SIDE-BY-SIDE (Wireframe Element 6 - Clickable) -->
                 <section class="bg-gradient-to-br from-stam-cream to-stam-card rounded-2xl p-6 shadow-sm border-2 border-stam-terracotta/40">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                        
-                        <!-- Bottom Left Ad Card (Clickable) -->
                         <div onclick="navigateToAdView('Bottom Sidebar Ad Unit')" class="md:col-span-5 bg-stam-deep text-white p-6 rounded-xl shadow-md text-center border border-stam-gold relative cursor-pointer group">
-                            <span class="absolute top-2 right-2 bg-stam-gold text-stam-dark font-extrabold text-[10px] uppercase px-2 py-0.5 rounded">
-                                SAVE 20%
-                            </span>
+                            <span class="absolute top-2 right-2 bg-stam-gold text-stam-dark font-extrabold text-[10px] uppercase px-2 py-0.5 rounded">SAVE 20%</span>
                             <i class="fa-solid fa-tags text-4xl text-stam-terracotta mb-2 group-hover:scale-110 transition-transform"></i>
                             <h4 class="font-serif font-bold text-xl text-stam-cream uppercase">Harvest Ad Special</h4>
                             <p class="text-xs text-stam-cream/80 mt-1 mb-3">Coffee Bean + Chocolate Combo</p>
-                            <span class="block w-full py-2 bg-stam-terracotta group-hover:bg-stam-terracotta-hover text-white text-xs font-serif font-bold uppercase rounded-lg shadow">
-                                OPEN AD PAGE <i class="fa-solid fa-up-right-from-square ml-1 text-[10px]"></i>
-                            </span>
+                            <span class="block w-full py-2 bg-stam-terracotta text-white text-xs font-serif font-bold uppercase rounded-lg shadow">OPEN AD PAGE <i class="fa-solid fa-up-right-from-square ml-1 text-[10px]"></i></span>
                         </div>
-
-                        <!-- Right Text Side -->
                         <div class="md:col-span-7 space-y-2">
                             <h4 class="font-serif font-bold text-lg text-stam-dark">Ready to Experience the Harvest Collection?</h4>
-                            <p class="text-xs text-stam-dark/80 leading-relaxed">
-                                Don't miss this seasonal offer! Select your preferred coffee roast today and your 20% discount on all Harvest Collection chocolates will be ready at checkout.
-                            </p>
+                            <p class="text-xs text-stam-dark/80 leading-relaxed">Don't miss this seasonal offer! Select your preferred coffee roast today and your 20% discount on all Harvest Collection chocolates will be ready at checkout.</p>
                             <div class="pt-2 flex items-center space-x-3">
-                                <span class="inline-flex items-center text-xs font-bold text-stam-crimson">
-                                    <i class="fa-solid fa-truck-fast mr-1.5"></i> Fast Fresh Shipping
-                                </span>
+                                <span class="inline-flex items-center text-xs font-bold text-stam-crimson"><i class="fa-solid fa-truck-fast mr-1.5"></i> Fast Fresh Shipping</span>
                                 <span class="text-stam-dark/30">•</span>
-                                <span class="inline-flex items-center text-xs font-bold text-stam-crimson">
-                                    <i class="fa-solid fa-award mr-1.5"></i> 100% Quality Guarantee
-                                </span>
+                                <span class="inline-flex items-center text-xs font-bold text-stam-crimson"><i class="fa-solid fa-award mr-1.5"></i> 100% Quality Guarantee</span>
                             </div>
                         </div>
                     </div>
                 </section>
-
             </main>
 
-            <!-- RIGHT SIDEBAR COLUMN (~30% / 4 Cols on Large Screens) -->
             <aside class="lg:col-span-4 space-y-6">
-
-                <!-- SEARCH BAR WITH SEARCH ICON (Wireframe Sidebar Top Element) -->
                 <div class="bg-stam-card p-4 rounded-xl shadow-sm border border-stam-border">
                     <label for="search-input" class="sr-only">Search Chocolates or Coffee</label>
                     <div class="relative">
-                        <input type="text" id="search-input" placeholder="Search coffee beans, truffles..." class="w-full pl-4 pr-10 py-3 rounded-lg bg-white border border-stam-border text-xs text-stam-dark placeholder:text-stam-dark/40 focus:outline-none focus:ring-2 focus:ring-stam-terracotta/40"/>
+                        <input type="text" id="search-input" placeholder="Search coffee beans, truffles..." class="w-full pl-4 pr-10 py-3 rounded-lg bg-white border border-stam-border text-xs text-stam-dark placeholder:text-stam-dark/40 focus:outline-none focus:ring-1 focus:ring-stam-terracotta">
                         <button class="absolute right-3 top-1/2 -translate-y-1/2 text-stam-terracotta hover:text-stam-crimson transition-colors p-1" aria-label="Search">
                             <i class="fa-solid fa-magnifying-glass text-base"></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- SIDEBAR FEATURED AD CARD -->
                 <div onclick="navigateToAdView('Sidebar Promo Box')" class="bg-gradient-to-br from-stam-deep to-stam-dark text-stam-cream p-5 rounded-2xl border-2 border-stam-gold/50 shadow-md cursor-pointer group">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-[10px] font-bold uppercase tracking-wider text-stam-gold bg-black/40 px-2 py-0.5 rounded">Seasonal Ad Offer</span>
@@ -354,329 +264,168 @@
                     </div>
                     <h3 class="font-serif text-lg font-bold text-white mb-1">Buy Coffee Beans, Save 20%</h3>
                     <p class="text-xs text-stam-cream/80 mb-3">Unlock our handcrafted autumn chocolate collection at an exclusive price.</p>
-                    <span class="inline-block w-full text-center py-2 bg-stam-terracotta text-white font-serif font-bold text-xs rounded uppercase tracking-wider">
-                        Claim Discount Now
-                    </span>
+                    <span class="inline-block w-full text-center py-2 bg-stam-terracotta text-white font-serif font-bold text-xs rounded uppercase tracking-wider">Claim Discount Now</span>
                 </div>
 
-                <!-- WIDGET BOX 1: FEATURED COFFEE BEANS -->
                 <div class="bg-stam-card rounded-2xl p-6 shadow-sm border border-stam-border space-y-4">
                     <div class="border-b border-stam-border pb-3 flex items-center justify-between">
-                        <h3 class="font-serif text-lg font-bold text-stam-dark flex items-center">
-                            <i class="fa-solid fa-seedling text-stam-terracotta mr-2"></i> Featured Beans
-                        </h3>
+                        <h3 class="font-serif text-lg font-bold text-stam-dark flex items-center"><i class="fa-solid fa-seedling text-stam-terracotta mr-2"></i> Featured Beans</h3>
                         <span class="text-[10px] bg-stam-terracotta/20 text-stam-deep font-bold px-2 py-0.5 rounded-full">20% Off Eligible</span>
                     </div>
-
-                    <!-- Coffee Item 1 -->
                     <div onclick="navigateToAdView('Stam Royal Espresso Roast')" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/60 transition-colors cursor-pointer group">
-                        <div class="w-12 h-12 bg-stam-deep rounded-lg flex items-center justify-center text-stam-gold font-serif font-bold text-lg group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-coffee"></i>
-                        </div>
+                        <div class="w-12 h-12 bg-stam-deep rounded-lg flex items-center justify-center text-stam-gold font-serif font-bold text-lg group-hover:scale-105 transition-transform"><i class="fa-solid fa-coffee"></i></div>
                         <div class="flex-grow">
                             <h4 class="font-serif font-bold text-xs text-stam-dark group-hover:text-stam-crimson">Stam Royal Espresso Roast</h4>
                             <p class="text-[11px] text-stam-dark/70">Rich dark cocoa & roasted hazelnut notes</p>
                             <span class="text-xs font-bold text-stam-crimson">$16.50 / 12oz</span>
                         </div>
                     </div>
-
-                    <!-- Coffee Item 2 -->
                     <div onclick="navigateToAdView('Autumn Spice Reserve')" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/60 transition-colors cursor-pointer group">
-                        <div class="w-12 h-12 bg-stam-terracotta rounded-lg flex items-center justify-center text-white font-serif font-bold text-lg group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-mug-hot"></i>
-                        </div>
+                        <div class="w-12 h-12 bg-stam-terracotta rounded-lg flex items-center justify-center text-white font-serif font-bold text-lg group-hover:scale-105 transition-transform"><i class="fa-solid fa-mug-hot"></i></div>
                         <div class="flex-grow">
                             <h4 class="font-serif font-bold text-xs text-stam-dark group-hover:text-stam-crimson">Autumn Spice Reserve</h4>
                             <p class="text-[11px] text-stam-dark/70">Cinnamon, nutmeg & toasted almond blend</p>
                             <span class="text-xs font-bold text-stam-crimson">$18.00 / 12oz</span>
                         </div>
                     </div>
-
-                    <!-- Coffee Item 3 -->
                     <div onclick="navigateToAdView('Dutch House Medium Roast')" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white/60 transition-colors cursor-pointer group">
-                        <div class="w-12 h-12 bg-stam-dark rounded-lg flex items-center justify-center text-stam-terracotta font-serif font-bold text-lg group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-jar"></i>
-                        </div>
+                        <div class="w-12 h-12 bg-stam-dark rounded-lg flex items-center justify-center text-stam-terracotta font-serif font-bold text-lg group-hover:scale-105 transition-transform"><i class="fa-solid fa-jar"></i></div>
                         <div class="flex-grow">
                             <h4 class="font-serif font-bold text-xs text-stam-dark group-hover:text-stam-crimson">Dutch House Medium Roast</h4>
                             <p class="text-[11px] text-stam-dark/70">Smooth, low acidity, subtle caramel finish</p>
                             <span class="text-xs font-bold text-stam-crimson">$15.95 / 12oz</span>
                         </div>
                     </div>
-
-                    <button onclick="navigateToAdView('Coffee Varieties Link')" class="w-full text-center text-xs font-bold text-stam-terracotta hover:text-stam-crimson pt-2">
-                        View All Coffee Varieties & Promo <i class="fa-solid fa-angle-right ml-1"></i>
-                    </button>
+                    <button onclick="navigateToAdView('Coffee Varieties Link')" class="w-full text-center text-xs font-bold text-stam-terracotta hover:text-stam-crimson pt-2">View All Coffee Varieties & Promo <i class="fa-solid fa-angle-right ml-1"></i></button>
                 </div>
 
-                <!-- WIDGET BOX 2: HARVEST HIGHLIGHTS -->
                 <div class="bg-stam-card rounded-2xl p-6 shadow-sm border border-stam-border space-y-5">
                     <div class="border-b border-stam-border pb-3">
-                        <h3 class="font-serif text-lg font-bold text-stam-dark flex items-center">
-                            <i class="fa-solid fa-leaf text-stam-terracotta mr-2"></i> Harvest Highlights
-                        </h3>
+                        <h3 class="font-serif text-lg font-bold text-stam-dark flex items-center"><i class="fa-solid fa-leaf text-stam-terracotta mr-2"></i> Harvest Highlights</h3>
                     </div>
-
-                    <!-- Highlight List -->
                     <div class="space-y-3">
-                        <div class="flex items-start space-x-3">
-                            <span class="text-stam-crimson font-serif font-bold text-base">01.</span>
-                            <div>
-                                <h4 class="font-bold text-xs text-stam-dark">Pumpkin Spice Pralines</h4>
-                                <p class="text-[11px] text-stam-dark/70">Creamy white chocolate center infused with real pumpkin pureé.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="text-stam-crimson font-serif font-bold text-base">02.</span>
-                            <div>
-                                <h4 class="font-bold text-xs text-stam-dark">Espresso Caramel Bonbons</h4>
-                                <p class="text-[11px] text-stam-dark/70">Dark chocolate shells filled with liquid espresso caramel.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <span class="text-stam-crimson font-serif font-bold text-base">03.</span>
-                            <div>
-                                <h4 class="font-bold text-xs text-stam-dark">Toasted Pecan Clusters</h4>
-                                <p class="text-[11px] text-stam-dark/70">Milk chocolate drenched over oven-roasted spiced pecans.</p>
-                            </div>
-                        </div>
+                        <div class="flex items-start space-x-3"><span class="text-stam-crimson font-serif font-bold text-base">01.</span><div><h4 class="font-bold text-xs text-stam-dark">Pumpkin Spice Pralines</h4><p class="text-[11px] text-stam-dark/70">Creamy white chocolate center infused with real pumpkin pureé.</p></div></div>
+                        <div class="flex items-start space-x-3"><span class="text-stam-crimson font-serif font-bold text-base">02.</span><div><h4 class="font-bold text-xs text-stam-dark">Espresso Caramel Bonbons</h4><p class="text-[11px] text-stam-dark/70">Dark chocolate shells filled with liquid espresso caramel.</p></div></div>
+                        <div class="flex items-start space-x-3"><span class="text-stam-crimson font-serif font-bold text-base">03.</span><div><h4 class="font-bold text-xs text-stam-dark">Toasted Pecan Clusters</h4><p class="text-[11px] text-stam-dark/70">Milk chocolate drenched over oven-roasted spiced pecans.</p></div></div>
                     </div>
-
-                    <!-- Mini Newsletter Box inside Sidebar Widget -->
                     <div class="bg-stam-cream p-4 rounded-xl border border-stam-border text-center space-y-3">
                         <i class="fa-solid fa-envelope-open-text text-2xl text-stam-terracotta"></i>
                         <h4 class="font-serif font-bold text-xs text-stam-dark uppercase">Get Secret Tasting Invites</h4>
                         <p class="text-[11px] text-stam-dark/70">Subscribe to receive exclusive seasonal discounts & event invitations.</p>
                         <form onsubmit="event.preventDefault(); triggerNotification('Thank you for subscribing to Chocolaterie Stam!');" class="space-y-2">
-                            <input type="email" placeholder="Enter your email" required class="w-full px-3 py-2 text-xs rounded bg-white border border-stam-border focus:outline-none focus:ring-1 focus:ring-stam-terracotta"/>
-                            <button type="submit" class="w-full py-2 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded uppercase tracking-wider transition-colors">
-                                Subscribe
-                            </button>
+                            <input type="email" placeholder="Enter your email" required class="w-full px-3 py-2 text-xs rounded bg-white border border-stam-border focus:outline-none focus:ring-1 focus:ring-stam-terracotta">
+                            <button type="submit" class="w-full py-2 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded uppercase tracking-wider transition-colors">Subscribe</button>
                         </form>
                     </div>
-
                 </div>
-
             </aside>
         </div>
     </div>
 
-    <!-- VIEW 2: DEDICATED AD DETAILS & PROMO PAGE (Hidden by default, shown when ad clicked) -->
     <div id="adDetailsPage" class="hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow space-y-8 animate-fadeIn">
-        
-        <!-- Breadcrumb Navigation & Return Button -->
         <div class="flex flex-wrap items-center justify-between gap-4 bg-stam-card p-4 rounded-2xl border border-stam-border shadow-sm">
             <div class="flex items-center space-x-2 text-xs text-stam-dark/70">
-                <button onclick="showMainView()" class="hover:text-stam-crimson font-medium flex items-center">
-                    <i class="fa-solid fa-house mr-1"></i> Home
-                </button>
+                <button onclick="showMainView()" class="hover:text-stam-crimson font-medium flex items-center"><i class="fa-solid fa-house mr-1"></i> Home</button>
                 <span>/</span>
                 <span class="text-stam-terracotta font-bold">Ad Page</span>
                 <span>/</span>
                 <span id="adSourceTag" class="text-stam-dark font-serif font-bold">Harvest Collection Ad</span>
             </div>
-
-            <button onclick="showMainView()" class="inline-flex items-center px-4 py-2 bg-stam-deep hover:bg-stam-dark text-stam-cream text-xs font-serif font-bold rounded-full shadow transition-colors">
-                <i class="fa-solid fa-arrow-left mr-2"></i> Back to Main Website
-            </button>
+            <button onclick="showMainView()" class="inline-flex items-center px-4 py-2 bg-stam-deep hover:bg-stam-dark text-stam-cream text-xs font-serif font-bold rounded-full shadow transition-colors"><i class="fa-solid fa-arrow-left mr-2"></i> Back to Main Website</button>
         </div>
 
-        <!-- HERO PROMO HEADER REPLICATING THE AD ARTWORK -->
         <div class="bg-gradient-to-br from-stam-deep via-stam-crimson to-stam-dark rounded-3xl p-6 sm:p-12 text-white shadow-2xl border-2 border-stam-gold relative overflow-hidden">
-            <div class="absolute -top-10 -right-10 text-stam-gold/10 text-9xl pointer-events-none">
-                <i class="fa-solid fa-leaf"></i>
-            </div>
-            
+            <div class="absolute -top-10 -right-10 text-stam-gold/10 text-9xl pointer-events-none"><i class="fa-solid fa-leaf"></i></div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-                
-                <!-- Left Details -->
                 <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                    <div class="inline-flex items-center space-x-2 bg-stam-gold/20 border border-stam-gold/40 px-4 py-1.5 rounded-full text-xs font-bold text-stam-gold uppercase tracking-widest">
-                        <i class="fa-solid fa-bullhorn"></i>
-                        <span>Exclusive Ad Landing Offer</span>
-                    </div>
-
-                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-stam-cream">
-                        HARVEST COLLECTION
-                    </h1>
-
+                    <div class="inline-flex items-center space-x-2 bg-stam-gold/20 border border-stam-gold/40 px-4 py-1.5 rounded-full text-xs font-bold text-stam-gold uppercase tracking-widest"><i class="fa-solid fa-bullhorn"></i><span>Exclusive Ad Landing Offer</span></div>
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-stam-cream">HARVEST COLLECTION</h1>
                     <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                        <span class="font-serif text-5xl sm:text-7xl font-black text-stam-gold tracking-tight">
-                            20% OFF
-                        </span>
-                        <div class="text-left max-w-xs">
-                            <span class="block text-xs uppercase tracking-widest text-stam-cream/80">Special Discount</span>
-                            <span class="text-sm font-semibold text-stam-cream">When purchasing any 12oz bag of Artisanal Coffee Beans</span>
-                        </div>
+                        <span class="font-serif text-5xl sm:text-7xl font-black text-stam-gold tracking-tight">20% OFF</span>
+                        <div class="text-left max-w-xs"><span class="block text-xs uppercase tracking-widest text-stam-cream/80">Special Discount</span><span class="text-sm font-semibold text-stam-cream">When purchasing any 12oz bag of Artisanal Coffee Beans</span></div>
                     </div>
-
-                    <p class="text-sm sm:text-base text-stam-cream/90 leading-relaxed font-sans max-w-2xl">
-                        Congratulations! By clicking our autumn ad campaign, your 20% Harvest Collection voucher has been automatically unlocked. Choose your coffee roast below and bundle with our handcrafted seasonal chocolates for a limited-time savings event.
-                    </p>
-
-                    <!-- Promo Code Box -->
+                    <p class="text-sm sm:text-base text-stam-cream/90 leading-relaxed font-sans max-w-2xl">Congratulations! By clicking our autumn ad campaign, your 20% Harvest Collection voucher has been automatically unlocked. Choose your coffee roast below and bundle with our handcrafted seasonal chocolates for the ultimate pairing offer.</p>
                     <div class="bg-black/40 border border-stam-gold/60 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-3 max-w-lg">
-                        <div>
-                            <span class="block text-[10px] text-stam-cream/70 uppercase tracking-widest">Promo Code Applied</span>
-                            <span class="font-mono font-bold text-xl text-stam-gold tracking-widest">HARVEST20</span>
-                        </div>
-                        <button onclick="copyPromoCode()" class="w-full sm:w-auto px-4 py-2 bg-stam-terracotta hover:bg-stam-terracotta-hover text-white text-xs font-serif font-bold uppercase rounded-lg transition-colors">
-                            <i class="fa-solid fa-copy mr-1"></i> Copy Code
-                        </button>
+                        <div><span class="block text-[10px] text-stam-cream/70 uppercase tracking-widest">Promo Code Applied</span><span class="font-mono font-bold text-xl text-stam-gold tracking-widest">HARVEST20</span></div>
+                        <button onclick="copyPromoCode()" class="w-full sm:w-auto px-4 py-2 bg-stam-terracotta hover:bg-stam-terracotta-hover text-white text-xs font-serif font-bold uppercase rounded-lg shadow"><i class="fa-solid fa-copy mr-1"></i> Copy Code</button>
                     </div>
                 </div>
 
-                <!-- Right Countdown Timer & Checkout Card -->
-                <div class="lg:col-span-5 bg-stam-cream text-stam-dark p-6 sm:p-8 rounded-2xl shadow-xl border-2 border-stam-gold space-y-6">
-                    <div class="text-center border-b border-stam-border pb-4">
-                        <span class="text-xs font-bold text-stam-crimson uppercase tracking-wider block">Limited Time Offer Closes In</span>
-                        
-                        <!-- Countdown Timer Display -->
-                        <div class="flex justify-center space-x-3 my-3">
-                            <div class="bg-stam-dark text-stam-cream p-2.5 rounded-lg min-w-[55px]">
-                                <span id="timerHours" class="font-serif font-bold text-xl block">18</span>
-                                <span class="text-[9px] uppercase tracking-wider text-stam-gold">Hours</span>
-                            </div>
-                            <div class="bg-stam-dark text-stam-cream p-2.5 rounded-lg min-w-[55px]">
-                                <span id="timerMinutes" class="font-serif font-bold text-xl block">42</span>
-                                <span class="text-[9px] uppercase tracking-wider text-stam-gold">Mins</span>
-                            </div>
-                            <div class="bg-stam-dark text-stam-cream p-2.5 rounded-lg min-w-[55px]">
-                                <span id="timerSeconds" class="font-serif font-bold text-xl block">15</span>
-                                <span class="text-[9px] uppercase tracking-wider text-stam-gold">Secs</span>
+                <div class="lg:col-span-5">
+                    <a href="#" onclick="showMainView(); return false;" class="group block w-full overflow-hidden rounded-2xl border-2 border-stam-gold shadow-xl relative transition-transform duration-200 hover:-translate-y-0.5">
+                        <div class="relative h-[380px] sm:h-[430px] bg-stam-cream">
+                            <img src="https://github.com/user-attachments/assets/1d9d45d0-13a2-40da-b492-3badbd1122cc" alt="Harvest Collection offer" class="w-full h-full object-cover object-center" />
+                            <div class="absolute inset-x-0 top-4 text-center px-4">
+                                <span class="inline-block bg-stam-gold/90 text-stam-dark text-[10px] font-black uppercase tracking-[0.28rem] px-4 py-2 rounded-full shadow-md">LIMITED TIME OFFER CLOSES IN</span>
                             </div>
                         </div>
-                        <p class="text-[11px] text-stam-dark/70">Offer valid for direct ad visitors only</p>
-                    </div>
-
-                    <!-- Step-by-Step Instructions -->
-                    <div class="space-y-3 text-xs">
-                        <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 rounded-full bg-stam-crimson text-white font-bold flex items-center justify-center shrink-0">1</div>
-                            <span>Select your favorite bag of coffee beans</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 rounded-full bg-stam-crimson text-white font-bold flex items-center justify-center shrink-0">2</div>
-                            <span>Choose your Harvest Chocolate Truffle box</span>
-                        </div>
-                        <div class="flex items-center space-x-3">
-                            <div class="w-6 h-6 rounded-full bg-stam-crimson text-white font-bold flex items-center justify-center shrink-0">3</div>
-                            <span>20% discount is applied automatically at checkout</span>
-                        </div>
-                    </div>
-
-                    <button onclick="triggerNotification('Selected bundle added to bag! Code HARVEST20 applied.')" class="w-full py-4 bg-stam-terracotta hover:bg-stam-terracotta-hover text-white font-serif font-bold text-base uppercase rounded-xl shadow-md transition-colors">
-                        <i class="fa-solid fa-basket-shopping mr-2"></i> Claim Bundle Offer Now
-                    </button>
-
-                    <button onclick="showMainView()" class="w-full text-center text-xs text-stam-dark/70 hover:text-stam-crimson underline">
-                        Or return to browse full catalog
-                    </button>
+                    </a>
                 </div>
-
             </div>
         </div>
 
-        <!-- SPECIAL AD BUNDLE SELECTOR SECTION -->
         <section class="bg-stam-card rounded-2xl p-6 sm:p-8 shadow-sm border border-stam-border space-y-6">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <span class="text-xs font-bold text-stam-terracotta uppercase tracking-wider">Ad Special Selection</span>
                 <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stam-dark">Choose Your Harvest Bundle</h2>
                 <p class="text-xs text-stam-dark/80">Each coffee bean order automatically discounts your chosen Harvest Collection chocolates by 20%.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Bundle Card 1 -->
                 <div class="bg-white rounded-xl p-5 border-2 border-stam-border hover:border-stam-terracotta shadow-sm transition-all flex flex-col justify-between space-y-4">
                     <div class="space-y-3">
                         <span class="bg-stam-terracotta/20 text-stam-crimson text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Most Popular</span>
-                        <div class="h-32 bg-stam-deep rounded-lg flex items-center justify-center text-stam-gold text-4xl">
-                            <i class="fa-solid fa-mug-hot"></i>
-                        </div>
+                        <div class="h-32 bg-stam-deep rounded-lg flex items-center justify-center text-stam-gold text-4xl"><i class="fa-solid fa-mug-hot"></i></div>
                         <h3 class="font-serif font-bold text-base text-stam-dark">Espresso & Truffle Pair</h3>
                         <p class="text-xs text-stam-dark/70">12oz Stam Royal Espresso + 16pc Harvest Truffle Box</p>
                     </div>
                     <div class="space-y-3 pt-2 border-t border-stam-border">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs line-through text-stam-dark/40">$42.00</span>
-                            <span class="font-serif font-extrabold text-lg text-stam-crimson">$33.60 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span>
-                        </div>
-                        <button onclick="triggerNotification('Added Espresso & Truffle Pair to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-sm uppercase rounded-lg transition-colors">
-                            Select Bundle
-                        </button>
+                        <div class="flex items-center justify-between"><span class="text-xs line-through text-stam-dark/40">$42.00</span><span class="font-serif font-extrabold text-lg text-stam-crimson">$33.60 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span></div>
+                        <button onclick="triggerNotification('Added Espresso & Truffle Pair to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded-lg uppercase tracking-wide">Select Bundle</button>
                     </div>
                 </div>
-
-                <!-- Bundle Card 2 -->
                 <div class="bg-white rounded-xl p-5 border-2 border-stam-border hover:border-stam-terracotta shadow-sm transition-all flex flex-col justify-between space-y-4">
                     <div class="space-y-3">
                         <span class="bg-stam-gold/30 text-stam-dark text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Autumn Special</span>
-                        <div class="h-32 bg-stam-terracotta rounded-lg flex items-center justify-center text-white text-4xl">
-                            <i class="fa-solid fa-leaf"></i>
-                        </div>
+                        <div class="h-32 bg-stam-terracotta rounded-lg flex items-center justify-center text-white text-4xl"><i class="fa-solid fa-leaf"></i></div>
                         <h3 class="font-serif font-bold text-base text-stam-dark">Spiced Reserve Bundle</h3>
                         <p class="text-xs text-stam-dark/70">12oz Autumn Spice Reserve + 12pc Pumpkin Pralines</p>
                     </div>
                     <div class="space-y-3 pt-2 border-t border-stam-border">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs line-through text-stam-dark/40">$46.00</span>
-                            <span class="font-serif font-extrabold text-lg text-stam-crimson">$36.80 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span>
-                        </div>
-                        <button onclick="triggerNotification('Added Spiced Reserve Bundle to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-sm uppercase rounded-lg transition-colors">
-                            Select Bundle
-                        </button>
+                        <div class="flex items-center justify-between"><span class="text-xs line-through text-stam-dark/40">$46.00</span><span class="font-serif font-extrabold text-lg text-stam-crimson">$36.80 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span></div>
+                        <button onclick="triggerNotification('Added Spiced Reserve Bundle to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded-lg uppercase tracking-wide">Select Bundle</button>
                     </div>
                 </div>
-
-                <!-- Bundle Card 3 -->
                 <div class="bg-white rounded-xl p-5 border-2 border-stam-border hover:border-stam-terracotta shadow-sm transition-all flex flex-col justify-between space-y-4">
                     <div class="space-y-3">
                         <span class="bg-stam-crimson/20 text-stam-crimson text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase">Gourmet Choice</span>
-                        <div class="h-32 bg-stam-dark rounded-lg flex items-center justify-center text-stam-gold text-4xl">
-                            <i class="fa-solid fa-box-open"></i>
-                        </div>
+                        <div class="h-32 bg-stam-dark rounded-lg flex items-center justify-center text-stam-gold text-4xl"><i class="fa-solid fa-box-open"></i></div>
                         <h3 class="font-serif font-bold text-base text-stam-dark">Grand Harvest Sampler</h3>
                         <p class="text-xs text-stam-dark/70">2x Coffee Beans (Your Choice) + Deluxe 24pc Bonbon Assortment</p>
                     </div>
                     <div class="space-y-3 pt-2 border-t border-stam-border">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs line-through text-stam-dark/40">$75.00</span>
-                            <span class="font-serif font-extrabold text-lg text-stam-crimson">$60.00 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span>
-                        </div>
-                        <button onclick="triggerNotification('Added Grand Harvest Sampler to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-sm uppercase rounded-lg transition-colors">
-                            Select Bundle
-                        </button>
+                        <div class="flex items-center justify-between"><span class="text-xs line-through text-stam-dark/40">$75.00</span><span class="font-serif font-extrabold text-lg text-stam-crimson">$60.00 <span class="text-[10px] text-stam-terracotta">(20% OFF)</span></span></div>
+                        <button onclick="triggerNotification('Added Grand Harvest Sampler to cart!')" class="w-full py-2.5 bg-stam-dark hover:bg-stam-deep text-stam-cream font-serif font-bold text-xs rounded-lg uppercase tracking-wide">Select Bundle</button>
                     </div>
                 </div>
             </div>
         </section>
-
     </div>
 
-    <!-- FULL WIDTH FOOTER (Wireframe Bottom Element) -->
     <footer class="bg-stam-dark text-stam-cream mt-12 border-t-4 border-stam-gold">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                
-                <!-- Col 1: Brand Info -->
                 <div class="space-y-3">
                     <div class="flex items-center space-x-2">
-                        <div class="w-8 h-8 rounded-full bg-stam-gold flex items-center justify-center text-stam-dark font-serif font-black">
-                            S
-                        </div>
+                        <div class="w-8 h-8 rounded-full bg-stam-gold flex items-center justify-center text-stam-dark font-serif font-black">S</div>
                         <span class="font-serif text-lg font-bold text-white tracking-wider">CHOCOLATERIE STAM</span>
                     </div>
-                    <p class="text-xs text-stam-cream/70 leading-relaxed">
-                        Handcrafting authentic Dutch chocolates, pralines, bonbons, and roasted coffee since 1913. 
-                    </p>
+                    <p class="text-xs text-stam-cream/70 leading-relaxed">Handcrafting authentic Dutch chocolates, pralines, bonbons, and roasted coffee since 1913.</p>
                     <div class="flex space-x-3 text-stam-gold text-base pt-2">
                         <a href="#" class="hover:text-stam-terracotta transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#" class="hover:text-stam-terracotta transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#" class="hover:text-stam-terracotta transition-colors" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
                     </div>
                 </div>
-
-                <!-- Col 2: Quick Links -->
                 <div>
                     <h4 class="font-serif text-sm font-bold text-stam-gold uppercase tracking-wider mb-3">Shop Collections</h4>
                     <ul class="space-y-2 text-xs text-stam-cream/80">
@@ -687,8 +436,6 @@
                         <li><a href="#" class="hover:text-stam-terracotta transition-colors">Corporate Gift Boxes</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 3: Customer Care -->
                 <div>
                     <h4 class="font-serif text-sm font-bold text-stam-gold uppercase tracking-wider mb-3">Customer Support</h4>
                     <ul class="space-y-2 text-xs text-stam-cream/80">
@@ -699,26 +446,13 @@
                         <li><a href="#" class="hover:text-stam-terracotta transition-colors">FAQ & Guarantee</a></li>
                     </ul>
                 </div>
-
-                <!-- Col 4: Store Guarantee & Hours -->
                 <div class="space-y-3">
                     <h4 class="font-serif text-sm font-bold text-stam-gold uppercase tracking-wider mb-3">Visit Our Shops</h4>
-                    <p class="text-xs text-stam-cream/80 leading-relaxed">
-                        <i class="fa-solid fa-location-dot text-stam-terracotta mr-1.5"></i> Historic Downtown Boutiques & Online Shop
-                    </p>
-                    <p class="text-xs text-stam-cream/80 leading-relaxed">
-                        <i class="fa-solid fa-clock text-stam-terracotta mr-1.5"></i> Mon - Sat: 9:00 AM - 8:00 PM
-                    </p>
-                    <div class="pt-2">
-                        <span class="inline-block bg-stam-deep text-stam-gold border border-stam-gold/30 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
-                            <i class="fa-solid fa-shield-halved mr-1"></i> Authentic Dutch Recipe
-                        </span>
-                    </div>
+                    <p class="text-xs text-stam-cream/80 leading-relaxed"><i class="fa-solid fa-location-dot text-stam-terracotta mr-1.5"></i> Historic Downtown Boutiques & Online Shop</p>
+                    <p class="text-xs text-stam-cream/80 leading-relaxed"><i class="fa-solid fa-clock text-stam-terracotta mr-1.5"></i> Mon - Sat: 9:00 AM - 8:00 PM</p>
+                    <div class="pt-2"><span class="inline-block bg-stam-deep text-stam-gold border border-stam-gold/30 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider"><i class="fa-solid fa-shield-halved mr-1"></i> Authentic Dutch Recipe</span></div>
                 </div>
-
             </div>
-
-            <!-- Bottom Copyright bar -->
             <div class="border-t border-stam-deep/80 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-stam-cream/60 space-y-3 sm:space-y-0">
                 <p>&copy; 2026 Chocolaterie Stam. All rights reserved. Wireframe landing page implementation.</p>
                 <div class="flex space-x-4">
@@ -730,7 +464,6 @@
         </div>
     </footer>
 
-    <!-- Interactive Notification Banner JS -->
     <div id="toastNotification" class="fixed bottom-5 right-5 bg-stam-deep text-white border-2 border-stam-gold px-5 py-3 rounded-xl shadow-2xl z-50 transform translate-y-32 opacity-0 transition-all duration-300">
         <i class="fa-solid fa-circle-check text-stam-gold text-xl"></i>
         <div>
@@ -740,13 +473,11 @@
     </div>
 
     <script>
-        // Toggle mobile drawer menu
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         }
 
-        // Navigation between Main Site View and Ad Offer View
         function navigateToAdView(sourceName) {
             document.getElementById('mainLandingPage').classList.add('hidden');
             document.getElementById('adDetailsPage').classList.remove('hidden');
@@ -773,7 +504,6 @@
             triggerNotification('Promo code HARVEST20 copied to clipboard!');
         }
 
-        // Simple real-time countdown timer for offer urgency
         let totalSeconds = 18 * 3600 + 42 * 60 + 15;
         setInterval(() => {
             if (totalSeconds > 0) {
@@ -781,26 +511,21 @@
                 const hrs = Math.floor(totalSeconds / 3600);
                 const mins = Math.floor((totalSeconds % 3600) / 60);
                 const secs = totalSeconds % 60;
-
                 const hElem = document.getElementById('timerHours');
                 const mElem = document.getElementById('timerMinutes');
                 const sElem = document.getElementById('timerSeconds');
-
                 if (hElem) hElem.innerText = hrs < 10 ? '0' + hrs : hrs;
                 if (mElem) mElem.innerText = mins < 10 ? '0' + mins : mins;
                 if (sElem) sElem.innerText = secs < 10 ? '0' + secs : secs;
             }
         }, 1000);
 
-        // Notification alert trigger
         function triggerNotification(msg) {
             const toast = document.getElementById('toastNotification');
             const toastMsg = document.getElementById('toastMessage');
             toastMsg.innerText = msg;
-            
             toast.classList.remove('translate-y-32', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
-
             setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-32', 'opacity-0');
