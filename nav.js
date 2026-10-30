@@ -2,23 +2,37 @@
 // Chocolaterie Stam - Harvest Collection App
 // ==========================================
 
-document.addEventListener('DOMContentLoaded', () => {
+function initializeApp() {
   showMainView();
   initNavigation();
   initCountdownTimer();
   initCopyPromoCode();
   initQuantityControls();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp, { once: true });
+} else {
+  initializeApp();
+}
 
 function showMainView() {
   const mainView = document.getElementById('mainView');
   const adView = document.getElementById('adView');
 
-  if (!mainView || !adView) return;
+  if (mainView) {
+    mainView.classList.remove('hidden');
+    mainView.removeAttribute('hidden');
+    mainView.setAttribute('aria-hidden', 'false');
+  }
 
-  mainView.classList.remove('hidden');
-  adView.classList.add('hidden');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (adView) {
+    adView.classList.add('hidden');
+    adView.setAttribute('hidden', 'hidden');
+    adView.setAttribute('aria-hidden', 'true');
+  }
+
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 /**
@@ -34,8 +48,16 @@ function initNavigation() {
   adTriggerElements.forEach(element => {
     element.addEventListener('click', (e) => {
       e.preventDefault();
-      if (mainView) mainView.classList.add('hidden');
-      if (adView) adView.classList.remove('hidden');
+      if (mainView) {
+        mainView.classList.add('hidden');
+        mainView.setAttribute('hidden', 'hidden');
+        mainView.setAttribute('aria-hidden', 'true');
+      }
+      if (adView) {
+        adView.classList.remove('hidden');
+        adView.removeAttribute('hidden');
+        adView.setAttribute('aria-hidden', 'false');
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
@@ -44,8 +66,16 @@ function initNavigation() {
   backToMainButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
-      if (adView) adView.classList.add('hidden');
-      if (mainView) mainView.classList.remove('hidden');
+      if (adView) {
+        adView.classList.add('hidden');
+        adView.setAttribute('hidden', 'hidden');
+        adView.setAttribute('aria-hidden', 'true');
+      }
+      if (mainView) {
+        mainView.classList.remove('hidden');
+        mainView.removeAttribute('hidden');
+        mainView.setAttribute('aria-hidden', 'false');
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
