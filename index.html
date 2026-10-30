@@ -751,7 +751,7 @@
             document.getElementById('mainLandingPage').classList.add('hidden');
             document.getElementById('adDetailsPage').classList.remove('hidden');
             if (sourceName) {
-                document.getElementById('adSourceTag').innerText = sourceName + ' Special';
+                document.getElementById('adSourceTag').innerText = sourceName === 'Main Hero Ad' ? 'Landing Page' : sourceName + ' Special';
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
             triggerNotification('Navigated to Harvest Offer Page! Code HARVEST20 applied.');
