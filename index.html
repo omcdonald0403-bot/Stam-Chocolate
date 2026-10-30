@@ -473,7 +473,7 @@
                 <span>/</span>
                 <span class="text-stam-terracotta font-bold">Ads Page</span>
                 <span>/</span>
-                <span id="adSourceTag" class="text-stam-dark font-serif font-bold">Harvest Collection Ad</span>
+                <span id="adSourceTag" class="text-stam-dark font-serif font-bold">Landing Page</span>
             </div>
 
             <button onclick="showMainView()" class="inline-flex items-center px-4 py-2 bg-stam-deep hover:bg-stam-dark text-stam-cream text-xs font-serif font-bold rounded-full shadow transition-colors">
@@ -751,7 +751,7 @@
             document.getElementById('mainLandingPage').classList.add('hidden');
             document.getElementById('adDetailsPage').classList.remove('hidden');
             if (sourceName) {
-                document.getElementById('adSourceTag').innerText = sourceName + ' Special';
+                document.getElementById('adSourceTag').innerText = 'Landing Page';
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
             triggerNotification('Navigated to Harvest Offer Page! Code HARVEST20 applied.');
