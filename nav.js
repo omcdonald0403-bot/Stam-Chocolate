@@ -3,11 +3,23 @@
 // ==========================================
 
 document.addEventListener('DOMContentLoaded', () => {
+  showMainView();
   initNavigation();
   initCountdownTimer();
   initCopyPromoCode();
   initQuantityControls();
 });
+
+function showMainView() {
+  const mainView = document.getElementById('mainView');
+  const adView = document.getElementById('adView');
+
+  if (!mainView || !adView) return;
+
+  mainView.classList.remove('hidden');
+  adView.classList.add('hidden');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 /**
  * Handles switching between the main content view and the full ad detail page
@@ -22,8 +34,8 @@ function initNavigation() {
   adTriggerElements.forEach(element => {
     element.addEventListener('click', (e) => {
       e.preventDefault();
-      mainView.classList.add('hidden');
-      adView.classList.remove('hidden');
+      if (mainView) mainView.classList.add('hidden');
+      if (adView) adView.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
@@ -32,8 +44,8 @@ function initNavigation() {
   backToMainButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       e.preventDefault();
-      adView.classList.add('hidden');
-      mainView.classList.remove('hidden');
+      if (adView) adView.classList.add('hidden');
+      if (mainView) mainView.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
