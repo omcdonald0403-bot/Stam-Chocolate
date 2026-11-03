@@ -1,800 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chocolaterie Stam - Harvest Collection</title>
-  <style>
-    /* ==========================================
-       RESET & BASE STYLES
-       ========================================== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #EFEFEF;
-      color: #333333;
-      line-height: 1.5;
-    }
-
-    a {
-      color: #8B2613;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* ==========================================
-       VIEW 1: MAIN LANDING PAGE WIREFRAME LAYOUT
-       ========================================== */
-    .wireframe-container {
-      max-width: 1080px;
-      margin: 20px auto;
-      background: #FFFFFF;
-      border: 12px solid #E5E5E5;
-      padding: 16px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    }
-
-    /* Top Wireframe Banner */
-    .wf-top-banner {
-      height: 80px;
-      border: 2px solid #E0E0E0;
-      background: #FFFFFF;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-    }
-
-    .wf-brand-logo {
-      font-family: 'Georgia', serif;
-      font-weight: bold;
-      font-size: 24px;
-      color: #5C1D18;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* Main Grid Split */
-    .wf-grid {
-      display: grid;
-      grid-template-columns: 2.2fr 1fr;
-      gap: 16px;
-    }
-
-    /* Left Primary Column */
-    .wf-main-col {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    /* Ad Banner Component */
-    .wf-ad-unit {
-      background-color: #00A3F0;
-      color: #FFFFFF;
-      text-align: center;
-      font-weight: 600;
-      font-size: 22px;
-      padding: 10px;
-      cursor: pointer;
-      transition: transform 0.2s, filter 0.2s;
-      position: relative;
-      user-select: none;
-    }
-
-    .wf-ad-unit:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
-    /* Harvest Stylings for Main Ad 1 */
-    .harvest-ad-banner {
-      background: #E8D3C3;
-      color: #5C1D18;
-      border: 2px solid #8B2613;
-      padding: 24px;
-      text-align: center;
-      border-radius: 4px;
-    }
-
-    .harvest-ad-banner h2 {
-      font-family: 'Georgia', serif;
-      font-size: 28px;
-      letter-spacing: 2px;
-      color: #8B2613;
-      margin-bottom: 6px;
-    }
-
-    .harvest-ad-banner .discount-tag {
-      font-size: 32px;
-      font-weight: 800;
-      color: #8B2613;
-      margin: 8px 0;
-    }
-
-    .harvest-ad-banner .cta-btn {
-      display: inline-block;
-      background: #D98852;
-      color: #FFFFFF;
-      font-weight: bold;
-      padding: 10px 24px;
-      border-radius: 20px;
-      margin-top: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    /* Article Wireframe Block */
-    .wf-article-block {
-      display: flex;
-      gap: 16px;
-      line-height: 1.6;
-    }
-
-    .wf-big-letter {
-      font-size: 80px;
-      line-height: 0.8;
-      color: #A3D8F5;
-      font-family: 'Georgia', serif;
-      font-weight: bold;
-    }
-
-    .wf-text-lines {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .wf-line {
-      height: 10px;
-      background: #BFE4F9;
-      border-radius: 2px;
-      width: 100%;
-    }
-
-    .wf-line.short { width: 60%; }
-    .wf-line.medium { width: 85%; }
-
-    /* Secondary Split Content Block */
-    .wf-split-block {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .wf-img-placeholder {
-      width: 220px;
-      height: 180px;
-      background: #D5EFFC;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #83C6ED;
-      font-size: 40px;
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-
-    /* Bottom Big Ad Unit */
-    .wf-ad-box {
-      width: 180px;
-      height: 120px;
-      background: #00A3F0;
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: bold;
-      float: left;
-      margin-right: 16px;
-      cursor: pointer;
-    }
-
-    /* Right Column Sidebar */
-    .wf-sidebar-col {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .wf-search-box {
-      border: 1px solid #D0D0D0;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 10px;
-      color: #00A3F0;
-    }
-
-    .wf-side-card {
-      border: 1px solid #BFE4F9;
-      height: 180px;
-      background: #FFFFFF;
-    }
-
-    .wf-side-card.tall {
-      height: 380px;
-    }
-
-    .wf-side-header {
-      background: #BFE4F9;
-      height: 20px;
-    }
-
-    /* Footer */
-    .wf-footer {
-      height: 60px;
-      border: 2px solid #E0E0E0;
-      margin-top: 16px;
-      background: #FFFFFF;
-    }
-
-    /* ==========================================
-       VIEW 2: DICTIONARY-STYLE AD PAGE
-       ========================================== */
-    .dict-container {
-      max-width: 1140px;
-      margin: 0 auto;
-      background: #FFFFFF;
-      min-height: 100vh;
-      border-left: 1px solid #CCCCCC;
-      border-right: 1px solid #CCCCCC;
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-
-    /* Dictionary Top Header Navigation */
-    .dict-header {
-      background: #232F3E;
-      color: #FFFFFF;
-      padding: 8px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: sans-serif;
-      font-size: 13px;
-    }
-
-    .dict-brand {
-      font-size: 22px;
-      font-weight: bold;
-      color: #FFFFFF;
-      letter-spacing: -0.5px;
-    }
-
-    .dict-search-bar {
-      background: #394B5E;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .dict-search-input {
-      flex: 1;
-      padding: 8px 12px;
-      font-size: 16px;
-      border: none;
-      outline: none;
-    }
-
-    .dict-search-btn {
-      background: #00A3F0;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    /* Ad 1: Leaderboard Banner Ad (Image 4 format) */
-    .ad-leaderboard-wrapper {
-      background: #E8D3C3;
-      border: 1px solid #8B2613;
-      margin: 12px 16px;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      transition: filter 0.2s;
-    }
-
-    .ad-leaderboard-wrapper:hover {
-      filter: brightness(0.97);
-    }
-
-    .ad-lb-text {
-      text-align: center;
-      flex: 1;
-    }
-
-    .ad-lb-title {
-      font-family: Georgia, serif;
-      font-size: 22px;
-      font-weight: bold;
-      color: #8B2613;
-      letter-spacing: 2px;
-    }
-
-    .ad-lb-sub {
-      font-size: 14px;
-      color: #5C1D18;
-      margin-top: 4px;
-    }
-
-    .ad-lb-btn {
-      background: #D98852;
-      color: white;
-      font-weight: bold;
-      padding: 8px 18px;
-      border-radius: 16px;
-      font-family: sans-serif;
-      font-size: 13px;
-      margin-top: 6px;
-      display: inline-block;
-    }
-
-    /* Dictionary Body Layout Grid */
-    .dict-body-grid {
-      display: grid;
-      grid-template-columns: 180px 1fr 280px;
-      gap: 16px;
-      padding: 16px;
-    }
-
-    /* Left Sidebar */
-    .dict-left-sidebar {
-      font-family: sans-serif;
-      font-size: 13px;
-      color: #444444;
-    }
-
-    .dict-left-sidebar h4 {
-      color: #111111;
-      font-size: 14px;
-      margin-bottom: 8px;
-      border-bottom: 1px solid #DDD;
-      padding-bottom: 4px;
-    }
-
-    .dict-left-sidebar ul {
-      list-style: none;
-      margin-bottom: 20px;
-    }
-
-    .dict-left-sidebar li {
-      margin-bottom: 6px;
-    }
-
-    /* Main Content Area */
-    .dict-main-content {
-      border-right: 1px solid #EFEFEF;
-      padding-right: 16px;
-    }
-
-    .dict-word-title {
-      font-size: 32px;
-      font-weight: bold;
-      color: #222222;
-      margin-bottom: 4px;
-    }
-
-    .dict-phonetic {
-      color: #666666;
-      font-style: italic;
-      margin-bottom: 16px;
-    }
-
-    /* Ad 2: Square Box Ad (Image 5 format with Stam logo) */
-    .ad-square-box {
-      width: 100%;
-      background: #E8D3C3;
-      border: 2px solid #8B2613;
-      padding: 20px;
-      text-align: center;
-      margin: 16px 0;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.2s;
-    }
-
-    .ad-square-box:hover {
-      transform: scale(1.01);
-    }
-
-    .ad-stam-logo {
-      font-family: Georgia, serif;
-      font-weight: bold;
-      font-size: 20px;
-      color: #8B2613;
-      border-bottom: 2px solid #8B2613;
-      display: inline-block;
-      padding-bottom: 2px;
-      margin-bottom: 10px;
-    }
-
-    .ad-square-title {
-      font-size: 24px;
-      font-weight: bold;
-      color: #8B2613;
-      letter-spacing: 1px;
-    }
-
-    .ad-square-discount {
-      font-size: 32px;
-      font-weight: 900;
-      color: #8B2613;
-      margin: 6px 0;
-    }
-
-    .ad-square-cta {
-      background: #D98852;
-      color: white;
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-top: 10px;
-      font-family: sans-serif;
-      font-size: 14px;
-    }
-
-    /* Right Sidebar */
-    .dict-right-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* Ad 3: Tall Vertical Skyscraper Ad (Image 6 format) */
-    .ad-skyscraper {
-      background: #E8D3C3;
-      border: 2px solid #8B2613;
-      padding: 24px 16px;
-      text-align: center;
-      cursor: pointer;
-      min-height: 480px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      transition: filter 0.2s;
-    }
-
-    .ad-skyscraper:hover {
-      filter: brightness(0.97);
-    }
-
-    .ad-sky-gift-icon {
-      width: 90px;
-      height: 90px;
-      background: #8B2613;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 36px;
-      border-radius: 8px;
-      margin-bottom: 12px;
-    }
-
-    .ad-sky-title {
-      font-size: 22px;
-      font-weight: bold;
-      color: #8B2613;
-      line-height: 1.2;
-    }
-
-    .ad-sky-discount {
-      font-size: 36px;
-      font-weight: 900;
-      color: #8B2613;
-      margin: 12px 0;
-    }
-
-    .ad-sky-cta {
-      background: #D98852;
-      color: white;
-      font-weight: bold;
-      padding: 12px 16px;
-      border-radius: 20px;
-      font-family: sans-serif;
-      font-size: 13px;
-      width: 100%;
-    }
-
-    /* Ad 4: Bottom Wide Banner Ad (Image 7 format) */
-    .ad-bottom-wide {
-      background: #E8D3C3;
-      border: 2px solid #8B2613;
-      margin: 16px;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      transition: filter 0.2s;
-    }
-
-    .ad-bottom-wide:hover {
-      filter: brightness(0.97);
-    }
-
-    /* Return Banner */
-    .return-bar {
-      background: #8B2613;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-family: sans-serif;
-      font-size: 14px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .return-bar:hover {
-      background: #5C1D18;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chocolaterie Stam - From traditional bonbons to hand-crafted gelato, treating every patron like family.">
+<title>Chocolaterie Stam | Fine Chocolates & Hand-Crafted Gelato</title>
+<style>
+:root {
+  --gold: #d4af37;
+  --cream: #fdf8f2;
+  --chocolate-dark: #2c1a14;
+  --chocolate-light: #523226;
+  --white: #ffffff;
+  --accent-rose: #a3485e;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: var(--cream);
+  color: var(--chocolate-dark);
+}
+a {
+  text-decoration: none;
+}
+nav {
+  background: var(--chocolate-dark);
+  padding: 20px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.logo {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.logo span {
+  color: var(--gold);
+}
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.nav-links a {
+  color: var(--white);
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+.nav-links a:hover {
+  color: var(--gold);
+}
+.hero {
+  min-height: 630px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  background-color: #3b221a;
+  background-image: 
+    linear-gradient(
+      45deg, 
+      rgba(212, 175, 55, 0.08) 25%, 
+      transparent 25%, 
+      transparent 75%, 
+      rgba(212, 175, 55, 0.08) 75%
+    ),
+    linear-gradient(
+      45deg, 
+      rgba(212, 175, 55, 0.08) 25%, 
+      transparent 25%, 
+      transparent 75%, 
+      rgba(212, 175, 55, 0.08) 75%
+    );
+  background-size: 90px 90px;
+  background-position: 0 0, 45px 45px;
+}
+.hero-content {
+  max-width: 850px;
+  background: rgba(253, 248, 242, 0.96);
+  padding: 50px 35px;
+  border-radius: 24px;
+  border: 3px solid var(--gold);
+  box-shadow: 12px 12px 0 var(--chocolate-dark);
+}
+.eyebrow {
+  font-size: 14px;
+  letter-spacing: 3px;
+  font-weight: 900;
+  color: var(--accent-rose);
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(38px, 6vw, 70px);
+  line-height: 1.1;
+  margin: 25px 0;
+  font-weight: 900;
+  color: var(--chocolate-dark);
+}
+.hero p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  color: var(--chocolate-light);
+}
+.button {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--chocolate-dark);
+  border: 2px solid var(--chocolate-dark);
+  padding: 17px 30px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: .2s;
+  margin: 6px;
+}
+.button:hover {
+  background: #e5c35c;
+  transform: translateY(-3px);
+}
+.button-dark {
+  background: var(--chocolate-dark);
+  color: var(--white);
+}
+.button-dark:hover {
+  background: var(--chocolate-light);
+}
+.section {
+  padding: 85px 20px;
+  text-align: center;
+}
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+.section-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  margin: 0 0 18px;
+}
+.section-description {
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 45px;
+}
+.treats-section {
+  background: var(--chocolate-dark);
+  color: var(--white);
+}
+.treats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.treat-card {
+  background: var(--chocolate-light);
+  padding: 35px 23px;
+  border-radius: 15px;
+  border: 1px solid #6b4334;
+}
+.treat-icon {
+  font-size: 55px;
+  margin-bottom: 20px;
+}
+.treat-card h3 {
+  font-size: 24px;
+  color: var(--gold);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.treat-card p {
+  color: #f3e5dc;
+  font-size: 16px;
+  line-height: 1.7;
+}
+.gelato-section {
+  background: var(--cream);
+}
+.gelato-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  text-align: left;
+}
+.gelato-photo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 12px 12px 0 var(--gold);
+}
+.gelato-content h2 {
+  font-size: clamp(36px, 5vw, 58px);
+  margin: 15px 0 25px;
+  line-height: 1.1;
+  font-weight: 900;
+}
+.gelato-content p {
+  font-size: 19px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+.family-section {
+  background: var(--accent-rose);
+  color: var(--white);
+}
+.family-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+.family-card {
+  background: var(--cream);
+  color: var(--chocolate-dark);
+  padding: 40px 25px;
+  border-radius: 15px;
+}
+.family-card h3 {
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.family-card p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.family-card .symbol {
+  font-size: 45px;
+}
+.location {
+  background: var(--white);
+}
+.location-box {
+  background: var(--cream);
+  border: 2px solid var(--chocolate-dark);
+  padding: 45px 25px;
+  max-width: 700px;
+  margin: auto;
+  border-radius: 16px;
+}
+.location-box h3 {
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.location-box p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+footer {
+  background: var(--chocolate-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 40px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+footer h2 {
+  font-size: 28px;
+  color: var(--gold);
+}
+footer a {
+  color: var(--gold);
+  font-weight: bold;
+  margin: 0 12px;
+}
+footer p {
+  color: #e3c9b9;
+  font-size: 14px;
+}
+@media (max-width: 750px) {
+  .treats-grid,
+  .gelato-grid,
+  .family-grid {
+    grid-template-columns: 1fr;
+  }
+  nav {
+    justify-content: center;
+    text-align: center;
+  }
+  .nav-links {
+    justify-content: center;
+    gap: 15px;
+  }
+  .hero {
+    min-height: 550px;
+  }
+  .hero-content {
+    padding: 35px 20px;
+  }
+  .hero p {
+    font-size: 17px;
+  }
+  .section {
+    padding: 60px 18px;
+  }
+  .gelato-grid,
+  .gelato-content {
+    text-align: center;
+  }
+}
+</style>
 </head>
 <body>
 
-  <!-- ========================================================= -->
-  <!-- VIEW 1: MAIN HARVEST LANDING PAGE (WIREFRAME STRUCTURE)    -->
-  <!-- ========================================================= -->
-  <div id="mainView" class="wireframe-container">
-    
-    <!-- Top Header Navigation Wireframe -->
-    <header class="wf-top-banner">
-      <div class="wf-brand-logo">
-        ☕ Chocolaterie Stam
-      </div>
-      <div style="font-size: 14px; color: #666; font-family: sans-serif;">
-        Special Offers & Harvest Collection
-      </div>
-    </header>
-
-    <!-- Main Grid -->
-    <div class="wf-grid">
-      
-      <!-- Left Column -->
-      <main class="wf-main-col">
-        
-        <!-- CLICKABLE AD UNIT 1 (Hero Main Ad) -->
-        <div class="wf-ad-unit harvest-ad-banner ad-trigger" title="Click to view full Harvest Collection ad page">
-          <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #8B2613; margin-bottom: 4px;">Sponsored Advertisement</div>
-          <h2>HARVEST COLLECTION</h2>
-          <div class="discount-tag">20% OFF</div>
-          <p style="font-family: Georgia, serif; font-size: 15px;">When you purchase a bag of handcrafted coffee beans</p>
-          <div class="cta-btn">CLICK HERE TO PURCHASE</div>
-        </div>
-
-        <!-- Wireframe Text Article Block -->
-        <section class="wf-article-block">
-          <div class="wf-big-letter">T</div>
-          <div class="wf-text-lines">
-            <div class="wf-line"></div>
-            <div class="wf-line"></div>
-            <div class="wf-line medium"></div>
-            <div class="wf-line"></div>
-            <div class="wf-line short"></div>
-          </div>
-        </section>
-
-        <!-- CLICKABLE AD UNIT 2 (Middle Bar Ad) -->
-        <div class="wf-ad-unit ad-trigger" style="background: #00A3F0; padding: 8px; font-size: 16px;">
-          Ads - Click to open Harvest Offer Page
-        </div>
-
-        <!-- Split Content Block with Image & Lines -->
-        <section class="wf-split-block">
-          <div class="wf-img-placeholder">
-            🖼️
-          </div>
-          <div class="wf-text-lines">
-            <div class="wf-line"></div>
-            <div class="wf-line medium"></div>
-            <div class="wf-line"></div>
-            <div class="wf-line short"></div>
-          </div>
-        </section>
-
-        <!-- Lower Section with Box Ad & Text -->
-        <section style="overflow: hidden; margin-top: 10px;">
-          <!-- CLICKABLE AD UNIT 3 (Lower Left Box Ad) -->
-          <div class="wf-ad-box ad-trigger">
-            Ads
-          </div>
-          <div class="wf-text-lines" style="padding-top: 8px;">
-            <div class="wf-line"></div>
-            <div class="wf-line medium"></div>
-            <div class="wf-line short"></div>
-          </div>
-        </section>
-
-      </main>
-
-      <!-- Right Column Sidebar -->
-      <aside class="wf-sidebar-col">
-        <!-- Search Box Placeholder -->
-        <div class="wf-search-box">
-          🔍
-        </div>
-
-        <!-- Side Card Top -->
-        <div class="wf-side-card">
-          <div class="wf-side-header"></div>
-        </div>
-
-        <!-- Side Card Bottom (Tall) -->
-        <div class="wf-side-card tall">
-          <div class="wf-side-header"></div>
-        </div>
-      </aside>
-
-    </div>
-
-    <!-- Wireframe Footer -->
-    <footer class="wf-footer"></footer>
-
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="logo">
+    CHOCOLATERIE <span>STAM</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">HOME</a>
+    <a href="#treats">OUR TREATS</a>
+    <a href="#gelato">GELATO</a>
+    <a href="#family">OUR STORY</a>
+    <a href="#location">FIND US</a>
   </div>
+</nav>
 
-  <!-- ========================================================= -->
-  <!-- VIEW 2: DICTIONARY-STYLE AD PAGE WITH ALL 4 CLICKABLE ADS   -->
-  <!-- ========================================================= -->
-  <div id="adView" class="dict-container hidden">
-    
-    <!-- Quick Return Banner -->
-    <div class="return-bar ad-return-trigger">
-      ⬅️ Click here or click any of the 4 Stam ads below to return to the Main Landing Page
-    </div>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">
+      WELCOME TO CHOCOLATERIE STAM
+    </span>
+    <h1>
+      THE HIGHEST QUALITY<br>OF DELIGHTS
+    </h1>
+    <p>
+      From traditional bonbons to hand-crafted gelato, we proudly offer the highest quality of delights, treating every patron and employee as an extension of our family.
+    </p>
+    <a href="#treats" class="button">
+      EXPLORE OUR SELECTION
+    </a>
+    <a href="#gelato" class="button button-dark">
+      DISCOVER OUR GELATO
+    </a>
+  </div>
+</section>
 
-    <!-- Header Navigation -->
-    <header class="dict-header">
-      <div class="dict-brand">Dictionary.com</div>
-      <div>Log In | Sign Up</div>
-    </header>
-
-    <!-- Search Bar -->
-    <div class="dict-search-bar">
-      <input type="text" class="dict-search-input" value="advertisement">
-      <button class="dict-search-btn">🔍 Search</button>
-    </div>
-
-    <!-- AD 1: Leaderboard Banner Ad (Image 4 format) -->
-    <div class="ad-leaderboard-wrapper ad-return-trigger" title="Click ad to return to main landing page">
-      <div style="font-size: 30px;">☕</div>
-      <div class="ad-lb-text">
-        <div class="ad-lb-title">HARVEST COLLECTION</div>
-        <div class="ad-lb-sub">20% OFF WHEN YOU PURCHASE A BAG OF COFFEE BEANS</div>
-        <div class="ad-lb-btn">CLICK HERE TO PURCHASE</div>
-      </div>
-      <div style="font-size: 30px;">🍫</div>
-    </div>
-
-    <!-- Main Dictionary Grid -->
-    <div class="dict-body-grid">
-      
-      <!-- Left Sidebar Column -->
-      <aside class="dict-left-sidebar">
-        <h4>Related Searches</h4>
-        <ul>
-          <li><a href="#">Magazine advertise...</a></li>
-          <li><a href="#">Types of advertise...</a></li>
-          <li><a href="#">Create a good adver...</a></li>
-          <li><a href="#">Free advertisement...</a></li>
-        </ul>
-
-        <h4>Nearby Words</h4>
-        <ul>
-          <li>advert</li>
-          <li>advertisable</li>
-          <li>adverb</li>
-          <li><strong>advertisement</strong></li>
-          <li>advertising</li>
-        </ul>
-      </aside>
-
-      <!-- Center Main Content -->
-      <main class="dict-main-content">
-        <h1 class="dict-word-title">advertisement</h1>
-        <div class="dict-phonetic">ad-ver-tise-ment / ˌæd vər ˈtaɪz mənt /</div>
-
-        <ol style="margin-left: 20px; line-height: 1.8; color: #333; margin-bottom: 20px; font-family: sans-serif; font-size: 14px;">
-          <li>A paid announcement, as of goods for sale, in newspapers or magazines, on radio or television, etc.</li>
-          <li>A public notice, especially a paid one.</li>
-          <li>The action of making generally known or calling to the attention of the public.</li>
-        </ol>
-
-        <!-- AD 2: Main Square Box Ad (Image 5 format with Stam logo) -->
-        <div class="ad-square-box ad-return-trigger" title="Click ad to return to main landing page">
-          <div class="ad-stam-logo">Chocolaterie Stam</div>
-          <div class="ad-square-title">HARVEST COLLECTION</div>
-          <div class="ad-square-discount">20% OFF</div>
-          <p style="font-size: 14px; color: #5C1D18;">WHEN YOU PURCHASE A BAG OF COFFEE BEANS</p>
-          <div class="ad-square-cta">CLICK HERE TO PURCHASE</div>
-        </div>
-
-        <h3 style="font-size: 18px; margin-top: 20px; margin-bottom: 8px;">Word Origin & History</h3>
-        <p style="font-size: 13px; font-family: sans-serif; color: #555; line-height: 1.6;">
-          mid-15c., "written statement calling attention to something," from stem of advertir ("public notice"). Meaning "public notice in a newspaper, etc." is from 1650s.
+<!-- TREATS SECTION -->
+<section class="section treats-section" id="treats">
+  <div class="container">
+    <h2 class="section-title">
+      TRADITIONAL CRAFTSMANSHIP
+    </h2>
+    <p class="section-description">
+      Every piece of chocolate is crafted with precision, passion, and time-honored European tradition.
+    </p>
+    <div class="treats-grid">
+      <div class="treat-card">
+        <div class="treat-icon">🍬</div>
+        <h3>BONBONS</h3>
+        <p>
+          Handcrafted bonbons filled with rich pralines, ganaches, and classic European recipe fillings.
         </p>
-      </main>
-
-      <!-- Right Sidebar Column -->
-      <aside class="dict-right-sidebar">
-        
-        <!-- AD 3: Tall Vertical Skyscraper Ad (Image 6 format) -->
-        <div class="ad-skyscraper ad-return-trigger" title="Click ad to return to main landing page">
-          <div class="ad-sky-gift-icon">🎁</div>
-          <div class="ad-sky-title">HARVEST<br>COLLECTION</div>
-          <div class="ad-sky-discount">20% OFF</div>
-          <p style="font-size: 13px; color: #5C1D18; font-family: sans-serif;">WHEN YOU PURCHASE A BAG OF COFFEE BEANS</p>
-          <div class="ad-sky-cta">CLICK TO PURCHASE</div>
-        </div>
-
-      </aside>
-
-    </div>
-
-    <!-- AD 4: Bottom Wide Banner Ad (Image 7 format) -->
-    <div class="ad-bottom-wide ad-return-trigger" title="Click ad to return to main landing page">
-      <div style="font-family: Georgia, serif; font-weight: bold; font-size: 22px; color: #8B2613;">Chocolaterie Stam</div>
-      <div style="text-align: center;">
-        <div style="font-weight: bold; color: #8B2613; font-size: 18px;">HARVEST COLLECTION - 20% OFF</div>
-        <div style="font-size: 12px; color: #5C1D18;">WHEN YOU PURCHASE A BAG OF COFFEE BEANS</div>
       </div>
-      <div style="background: #D98852; color: white; padding: 8px 16px; border-radius: 16px; font-family: sans-serif; font-size: 12px; font-weight: bold;">CLICK HERE TO PURCHASE</div>
+      <div class="treat-card">
+        <div class="treat-icon">🍨</div>
+        <h3>HAND-CRAFTED GELATO</h3>
+        <p>
+          Smooth, authentic Italian-style gelato prepared fresh daily with premium, real ingredients.
+        </p>
+      </div>
+      <div class="treat-card">
+        <div class="treat-icon">🎁</div>
+        <h3>SPECIALTY GIFT BOXES</h3>
+        <p>
+          Custom assortments tailored for holidays, weddings, corporate gifts, and special moments.
+        </p>
+      </div>
     </div>
-
+    <div style="margin-top:35px;">
+      <a href="https://stamchocolate.com" target="_blank" rel="noopener noreferrer" class="button">
+        VISIT OUR SHOP
+      </a>
+    </div>
   </div>
+</section>
 
-  <!-- ========================================================= -->
-  <!-- JAVASCRIPT NAVIGATION & INTERACTION                       -->
-  <!-- ========================================================= -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const mainView = document.getElementById('mainView');
-      const adView = document.getElementById('adView');
+<!-- GELATO FEATURE -->
+<section class="section gelato-section" id="gelato">
+  <div class="container gelato-grid">
+    <div>
+      <img
+        src="images/gelato-selection.png"
+        alt="Hand-crafted Gelato Display at Chocolaterie Stam"
+        class="gelato-photo"
+        width="300"
+        height="400"
+        loading="lazy"
+      >
+    </div>
+    <div class="gelato-content">
+      <span class="eyebrow">
+        AUTHENTIC & FRESH DAILY
+      </span>
+      <h2>
+        HAND-CRAFTED GELATO
+      </h2>
+      <p>
+        Made with the finest authentic ingredients, our creamy gelato offers an unforgettable taste of European tradition in every single scoop.
+      </p>
+      <a href="#location" class="button">
+        TRY A SCOOP TODAY
+      </a>
+    </div>
+  </div>
+</section>
 
-      // Navigate from Main Page Ads to the Dictionary Ad Page
-      const adTriggers = document.querySelectorAll('.ad-trigger');
-      adTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          mainView.classList.add('hidden');
-          adView.classList.remove('hidden');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      });
+<!-- FAMILY & COMMUNITY SECTION -->
+<section class="section family-section" id="family">
+  <div class="container">
+    <h2 class="section-title">
+      AN EXTENSION OF OUR FAMILY
+    </h2>
+    <p class="section-description">
+      When you walk through our doors, you are treated like family. Experience rich history and sweet hospitality.
+    </p>
+    <div class="family-grid">
+      <div class="family-card">
+        <div class="symbol">🍫</div>
+        <h3>OUR HERITAGE</h3>
+        <p>
+          Centuries of tradition baked into every bite, preserving classic chocolate-making methods for generations.
+        </p>
+      </div>
+      <div class="family-card">
+        <div class="symbol">❤️</div>
+        <h3>OUR PROMISE</h3>
+        <p>
+          Treating every patron and team member with warmth, dedication, and the utmost care.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-      // Navigate back from any of the 4 Ads to the Main Landing Page
-      const returnTriggers = document.querySelectorAll('.ad-return-trigger');
-      returnTriggers.forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          adView.classList.add('hidden');
-          mainView.classList.remove('hidden');
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      });
-    });
-  </script>
+<!-- LOCATION SECTION -->
+<section class="section location" id="location">
+  <div class="container">
+    <h2 class="section-title">
+      VISIT US TODAY
+    </h2>
+    <p class="section-description">
+      Step inside Chocolaterie Stam and indulge in a sweet escape.
+    </p>
+    <div class="location-box">
+      <h3>CHOCOLATERIE STAM</h3>
+      <p>
+        230 Main Street<br>
+        Ames, Iowa 50010
+      </p>
+      <p>
+        Bonbons, truffles, hand-crafted gelato, and warm Dutch hospitality.
+      </p>
+      <a href="https://stamchocolate.com" target="_blank" rel="noopener noreferrer" class="button">
+        OFFICIAL WEBSITE
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h2>CHOCOLATERIE STAM</h2>
+  <p>Treating every patron and employee as an extension of our family.</p>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="#treats">Our Treats</a>
+    <a href="#gelato">Gelato</a>
+    <a href="#location">Locations</a>
+  </div>
+  <p style="margin-top:30px;">
+    &copy; Chocolaterie Stam. All rights reserved.
+  </p>
+</footer>
+
 </body>
 </html>
