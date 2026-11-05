@@ -3,62 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Chocolaterie Stam advertising page.">
+  <meta name="description" content="Chocolaterie Stam advertising page with ad units arranged in a sample website layout.">
   <title>Chocolaterie Stam | Ads</title>
   <style>
     :root {
       --gold: #d4af37;
       --cream: #fdf8f2;
       --chocolate-dark: #2c1a14;
+      --chocolate-light: #523226;
       --white: #fff;
+      --rose: #a3485e;
     }
     * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      color: var(--chocolate-dark);
-      background: var(--cream);
-      font-family: Georgia, 'Times New Roman', serif;
-    }
-    nav {
-      padding: 18px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      background: var(--chocolate-dark);
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    body { margin: 0; color: var(--chocolate-dark); background: #e9e4dc; font-family: Georgia, 'Times New Roman', serif; }
+    nav { padding: 18px 7%; display: flex; justify-content: space-between; align-items: center; gap: 20px; background: var(--chocolate-dark); font-family: Arial, Helvetica, sans-serif; }
     nav a { color: var(--white); text-decoration: none; font-weight: bold; }
     nav a:hover, nav a:focus-visible { color: var(--gold); }
     .logo { font-size: 22px; letter-spacing: 1px; }
-    .ad-page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 36px 0 64px; }
-    h1 { margin: 0 0 30px; text-align: center; font-size: clamp(30px, 5vw, 48px); }
-    .leaderboard { display: flex; justify-content: center; margin: 0 auto 44px; }
-    .ad-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 300px;
-      align-items: start;
-      justify-content: center;
-      gap: 32px;
-    }
-    .content-ads { display: grid; grid-template-columns: 300px 160px; align-items: start; justify-content: center; gap: 24px; }
+    .website { width: min(1120px, calc(100% - 32px)); margin: 28px auto; padding: 22px; background: var(--white); border: 1px solid #d5cec3; box-shadow: 0 8px 30px rgba(44,26,20,.12); }
+    .leaderboard { display: flex; justify-content: center; margin: 0 auto 24px; }
     .ad-link { display: block; width: fit-content; max-width: 100%; line-height: 0; }
     .ad-link img { display: block; height: auto; max-width: 100%; }
     .leaderboard img { width: 728px; }
-    .medium img { width: 300px; }
+    .page-grid { display: grid; grid-template-columns: 160px minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
     .skyscraper img { width: 160px; }
+    .article { min-width: 0; padding: 10px 4px; }
+    .article-header { margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #e8dfd4; }
+    .kicker { margin: 0 0 8px; color: var(--rose); font: bold 12px Arial, Helvetica, sans-serif; letter-spacing: 1.8px; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; }
+    .article p { color: #66544c; font-size: 16px; line-height: 1.75; }
+    .article-image { width: 100%; height: 150px; margin: 20px 0; border-radius: 6px; background: linear-gradient(135deg, #f8eee2, #ead7c4); }
+    .article-image::after { content: 'CHOCOLATERIE STAM'; height: 100%; display: grid; place-items: center; color: #9e735b; font: bold 14px Arial, Helvetica, sans-serif; letter-spacing: 2px; }
+    .medium { margin: 18px auto 0; text-align: center; }
+    .medium img { width: 300px; }
     .half-page img { width: 300px; }
+    .footer-ad { margin-top: 24px; padding-top: 18px; border-top: 1px solid #e8dfd4; display: flex; justify-content: center; }
+    .footer-ad img { width: 728px; }
     .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-    @media (max-width: 760px) {
-      nav { flex-direction: column; }
-      .ad-layout { grid-template-columns: 1fr; }
-      .content-ads { grid-template-columns: minmax(0, 300px) minmax(0, 160px); }
-      .half-page { justify-self: center; }
+    @media (max-width: 900px) {
+      .page-grid { grid-template-columns: 160px minmax(0, 1fr); }
+      .half-page { display: none; }
+      .medium { margin-top: 20px; }
     }
-    @media (max-width: 520px) {
-      .content-ads { grid-template-columns: 1fr; justify-items: center; }
-      .leaderboard img, .medium img, .skyscraper img, .half-page img { width: 100%; height: auto; }
-      .leaderboard .ad-link, .medium .ad-link, .skyscraper .ad-link, .half-page .ad-link { width: 100%; }
+    @media (max-width: 620px) {
+      nav { flex-direction: column; }
+      .website { width: min(100% - 16px, 500px); margin: 8px auto; padding: 12px; }
+      .page-grid { grid-template-columns: minmax(0, 1fr); }
+      .skyscraper, .half-page { display: none; }
+      .leaderboard { margin-bottom: 14px; }
+      .leaderboard img, .footer-ad img { width: 100%; }
+      .medium img { width: min(300px, 100%); }
+      .footer-ad { margin-top: 16px; }
     }
   </style>
 </head>
@@ -68,33 +63,46 @@
     <a href="index.html">HOME</a>
   </nav>
 
-  <main class="ad-page">
-    <h1>AD PAGE</h1>
-
+  <main class="website">
     <div class="leaderboard">
       <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
         <img src="stam-728x90.png" width="728" height="90" alt="Chocolaterie Stam Harvest Collection leaderboard advertisement">
       </a>
     </div>
 
-    <div class="ad-layout">
-      <div class="content-ads">
+    <div class="page-grid">
+      <aside class="skyscraper" aria-label="Advertisement">
+        <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
+          <img src="stam-160x600.png" width="160" height="600" alt="Chocolaterie Stam Harvest Collection skyscraper advertisement" loading="lazy">
+        </a>
+      </aside>
+
+      <article class="article">
+        <header class="article-header">
+          <p class="kicker">Chocolaterie Stam · Ames, Iowa</p>
+          <h1>European chocolate, coffee &amp; handcrafted treats</h1>
+        </header>
+        <p>Discover traditional bonbons, rich coffee, and handcrafted treats from Chocolaterie Stam. Explore our seasonal collection and find a favorite to share.</p>
+        <div class="article-image" role="img" aria-label="Decorative placeholder for website article image"></div>
+        <p>Made with care and inspired by European tradition, every visit is a chance to enjoy something special. Browse the featured offer and explore more from Stam.</p>
         <div class="medium">
           <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
             <img src="stam-300x250.png" width="300" height="250" alt="Chocolaterie Stam Harvest Collection medium rectangle advertisement" loading="lazy">
           </a>
         </div>
-        <div class="skyscraper">
-          <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
-            <img src="stam-160x600.png" width="160" height="600" alt="Chocolaterie Stam Harvest Collection skyscraper advertisement" loading="lazy">
-          </a>
-        </div>
-      </div>
-      <div class="half-page">
+      </article>
+
+      <aside class="half-page" aria-label="Advertisement">
         <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
           <img src="stam-300x600.png" width="300" height="600" alt="Chocolaterie Stam Harvest Collection half-page advertisement" loading="lazy">
         </a>
-      </div>
+      </aside>
+    </div>
+
+    <div class="footer-ad">
+      <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
+        <img src="stam-728x90.png" width="728" height="90" alt="Chocolaterie Stam Harvest Collection leaderboard advertisement" loading="lazy">
+      </a>
     </div>
   </main>
 </body>
