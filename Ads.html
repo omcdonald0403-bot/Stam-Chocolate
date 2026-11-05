@@ -34,17 +34,16 @@
     .article p { color: #66544c; font-size: 16px; line-height: 1.75; }
     .medium { margin: 18px auto 0; text-align: center; }
     .medium img { width: 300px; }
+    .financial-estimates { margin-top: 24px; color: #33251f; font: 15px/1.6 Arial, Helvetica, sans-serif; }
+    .financial-estimates h2 { margin: 0 0 10px; color: var(--chocolate-dark); font-size: 20px; }
+    .financial-estimates p { margin: 8px 0; color: #4a3b34; font-size: 15px; line-height: 1.6; }
+    .financial-estimates ul { margin: 4px 0 10px; padding-left: 22px; }
+    .financial-estimates li { margin: 3px 0; }
     .half-page img { width: 300px; }
     .coffee-photo { margin-top: 20px; }
     .coffee-photo img { display: block; width: 300px; max-width: 100%; height: auto; }
     .iced-coffee-photo { padding-left: 24px; }
     .iced-coffee-photo img { width: 220px; max-width: 100%; }
-    .instagram-button { display: inline-block; margin-top: 24px; padding: 12px 20px; border-radius: 6px; background: var(--chocolate-dark); color: var(--white); font: bold 14px Arial, Helvetica, sans-serif; text-decoration: none; }
-    .instagram-button:hover, .instagram-button:focus-visible { background: var(--chocolate-light); color: var(--gold); }
-    .instagram-button:focus-visible, .instagram-icon-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
-    .instagram-icon-link { display: block; width: 32px; height: 32px; margin-top: 10px; color: #000; }
-    .instagram-icon { display: block; width: 100%; height: 100%; }
-    .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     .review-section { width: min(1120px, calc(100% - 32px)); margin: 20px auto 40px; padding: 22px 24px 18px; background: #f5f0e7; color: #1f1d1d; border-radius: 0; box-shadow: none; }
     .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
     .review-avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; background: linear-gradient(135deg, #d98cc8, #843d91); color: #fff; font: bold 15px Georgia, serif; }
@@ -69,6 +68,7 @@
       .medium img { width: min(300px, 100%); }
       .iced-coffee-photo { padding-left: 16px; }
       .iced-coffee-photo img { width: min(220px, 100%); }
+      .financial-estimates { margin-top: 20px; }
       .review-section { width: min(100% - 16px, 500px); margin: 16px auto 24px; padding: 16px; }
       .review-text { font-size: 15px; }
     }
@@ -105,6 +105,25 @@
             <img src="stam-300x250.png" width="300" height="250" alt="Chocolaterie Stam Harvest Collection medium rectangle advertisement" loading="lazy">
           </a>
         </div>
+        <section class="financial-estimates" aria-labelledby="financial-estimates-title">
+          <h2 id="financial-estimates-title">Financial Estimates</h2>
+          <p><strong>Average CPM:</strong> $3.00–$12.00</p>
+          <ul>
+            <li>Google Display Network: $2.00–$5.00</li>
+            <li>Meta Awareness (Facebook and Instagram): $3.00–$6.00</li>
+            <li>Meta Conversion (Facebook and Instagram): $12.00 and up</li>
+          </ul>
+          <p><strong>CTR:</strong></p>
+          <ul>
+            <li>Local Search Ads: 4.6%–6.5%</li>
+            <li>Google Standard Search Ads: 3.5%–5.5%</li>
+          </ul>
+          <p><strong>CVR:</strong></p>
+          <ul>
+            <li>Google Display Network: 0.5%–1.0%</li>
+            <li>Meta Conversion (Instagram): 0% or close to it; Instagram optimizes impressions, not clicks or purchases.</li>
+          </ul>
+        </section>
       </article>
 
       <aside class="half-page" aria-label="Advertisement">
