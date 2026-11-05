@@ -6,457 +6,117 @@
 <meta name="description" content="Chocolaterie Stam - From traditional bonbons, coffee, to hand-crafted gelato, treating every patron like family.">
 <title>Chocolaterie Stam | Fine Chocolates & Hand-Crafted Gelato</title>
 <style>
-:root {
-  --gold: #d4af37;
-  --cream: #fdf8f2;
-  --chocolate-dark: #2c1a14;
-  --chocolate-light: #523226;
-  --white: #ffffff;
-  --accent-rose: #a3485e;
-}
-* {
-  box-sizing: border-box;
-}
-html {
-  scroll-behavior: smooth;
-}
-body {
-  margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  background: var(--cream);
-  color: var(--chocolate-dark);
-}
-a {
-  text-decoration: none;
-}
-nav {
-  background: var(--chocolate-dark);
-  padding: 20px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 18px;
-}
-.logo {
-  color: var(--white);
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.logo span {
-  color: var(--gold);
-}
-.nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.nav-links a {
-  color: var(--white);
-  font-weight: bold;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-.nav-links a:hover {
-  color: var(--gold);
-}
-.hero {
-  min-height: 630px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;
-  text-align: center;
-  background-color: #3b221a;
-  background-image: 
-    linear-gradient(
-      45deg, 
-      rgba(212, 175, 55, 0.08) 25%, 
-      transparent 25%, 
-      transparent 75%, 
-      rgba(212, 175, 55, 0.08) 75%
-    ),
-    linear-gradient(
-      45deg, 
-      rgba(212, 175, 55, 0.08) 25%, 
-      transparent 25%, 
-      transparent 75%, 
-      rgba(212, 175, 55, 0.08) 75%
-    );
-  background-size: 90px 90px;
-  background-position: 0 0, 45px 45px;
-}
-.hero-content {
-  max-width: 850px;
-  background: rgba(253, 248, 242, 0.96);
-  padding: 50px 35px;
-  border-radius: 24px;
-  border: 3px solid var(--gold);
-  box-shadow: 12px 12px 0 var(--chocolate-dark);
-}
-.eyebrow {
-  font-size: 14px;
-  letter-spacing: 3px;
-  font-weight: 900;
-  color: var(--accent-rose);
-  font-family: Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-}
-h1 {
-  font-size: clamp(38px, 6vw, 70px);
-  line-height: 1.1;
-  margin: 25px 0;
-  font-weight: 900;
-  color: var(--chocolate-dark);
-}
-.hero p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 35px;
-  color: var(--chocolate-light);
-}
-.button {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--chocolate-dark);
-  border: 2px solid var(--chocolate-dark);
-  padding: 17px 30px;
-  border-radius: 8px;
-  font-weight: 900;
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: .2s;
-  margin: 6px;
-}
-.button:hover {
-  background: #e5c35c;
-  transform: translateY(-3px);
-}
-.button-dark {
-  background: var(--chocolate-dark);
-  color: var(--white);
-}
-.button-dark:hover {
-  background: var(--chocolate-light);
-}
-.section {
-  padding: 85px 20px;
-  text-align: center;
-}
-.container {
-  max-width: 1100px;
-  margin: auto;
-}
-.section-title {
-  font-size: clamp(32px, 5vw, 52px);
-  font-weight: 900;
-  margin: 0 0 18px;
-}
-.section-description {
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 700px;
-  margin: 0 auto 45px;
-}
-.treats-section {
-  background: var(--chocolate-dark);
-  color: var(--white);
-}
-.treats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.treat-card {
-  background: var(--chocolate-light);
-  padding: 35px 23px;
-  border-radius: 15px;
-  border: 1px solid #6b4334;
-}
-.treat-icon {
-  font-size: 55px;
-  margin-bottom: 20px;
-}
-.treat-card h3 {
-  font-size: 24px;
-  color: var(--gold);
-  font-family: Arial, Helvetica, sans-serif;
-}
-.treat-card p {
-  color: #f3e5dc;
-  font-size: 16px;
-  line-height: 1.7;
-
-}
-.family-section {
-  background: var(--accent-rose);
-  color: var(--white);
-}
-.family-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
-}
-.family-card {
-  background: var(--cream);
-  color: var(--chocolate-dark);
-  padding: 40px 25px;
-  border-radius: 15px;
-}
-.family-card h3 {
-  font-size: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.family-card p {
-  font-size: 16px;
-  line-height: 1.7;
-}
-.family-card .symbol {
-  font-size: 45px;
-}
-.location {
-  background: var(--white);
-}
-.location-box {
-  background: var(--cream);
-  border: 2px solid var(--chocolate-dark);
-  padding: 45px 25px;
-  max-width: 700px;
-  margin: auto;
-  border-radius: 16px;
-}
-.location-box h3 {
-  font-size: 28px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-.location-box p {
-  font-size: 18px;
-  line-height: 1.7;
-}
-footer {
-  background: var(--chocolate-dark);
-  color: var(--white);
-  text-align: center;
-  padding: 40px 20px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-footer h2 {
-  font-size: 28px;
-  color: var(--gold);
-}
-footer a {
-  color: var(--gold);
-  font-weight: bold;
-  margin: 0 12px;
-}
-footer p {
-  color: #e3c9b9;
-  font-size: 14px;
-}
-@media (max-width: 750px) {
-  .treats-grid,
-  .gelato-grid,
-  .family-grid {
-    grid-template-columns: 1fr;
-  }
-  nav {
-    justify-content: center;
-    text-align: center;
-  }
-  .nav-links {
-    justify-content: center;
-    gap: 15px;
-  }
-  .hero {
-    min-height: 550px;
-  }
-  .hero-content {
-    padding: 35px 20px;
-  }
-  .hero p {
-    font-size: 17px;
-  }
-  .section {
-    padding: 60px 18px;
-  }
-  .gelato-grid,
-  .gelato-content {
-    text-align: center;
-  }
-}
+:root { --gold:#d4af37; --cream:#fdf8f2; --chocolate-dark:#2c1a14; --chocolate-light:#523226; --white:#fff; --accent-rose:#a3485e; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:Georgia,'Times New Roman',serif; background:var(--cream); color:var(--chocolate-dark); }
+a { text-decoration:none; }
+nav { background:var(--chocolate-dark); padding:20px 7%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:18px; }
+.logo { color:var(--white); font-size:24px; font-weight:900; letter-spacing:1px; font-family:Arial,Helvetica,sans-serif; }
+.logo span { color:var(--gold); }
+.nav-links { display:flex; flex-wrap:wrap; gap:25px; font-family:Arial,Helvetica,sans-serif; }
+.nav-links a { color:var(--white); font-weight:bold; font-size:14px; letter-spacing:.5px; }
+.nav-links a:hover { color:var(--gold); }
+.hero { min-height:630px; display:flex; align-items:center; justify-content:center; padding:80px 20px; text-align:center; background-color:#3b221a; background-image:linear-gradient(45deg,rgba(212,175,55,.08) 25%,transparent 25%,transparent 75%,rgba(212,175,55,.08) 75%),linear-gradient(45deg,rgba(212,175,55,.08) 25%,transparent 25%,transparent 75%,rgba(212,175,55,.08) 75%); background-size:90px 90px; background-position:0 0,45px 45px; }
+.hero-content { max-width:850px; background:rgba(253,248,242,.96); padding:50px 35px; border-radius:24px; border:3px solid var(--gold); box-shadow:12px 12px 0 var(--chocolate-dark); }
+.eyebrow { font-size:14px; letter-spacing:3px; font-weight:900; color:var(--accent-rose); font-family:Arial,Helvetica,sans-serif; text-transform:uppercase; }
+h1 { font-size:clamp(38px,6vw,70px); line-height:1.1; margin:25px 0; font-weight:900; color:var(--chocolate-dark); }
+.hero p { font-size:20px; line-height:1.6; margin-bottom:35px; color:var(--chocolate-light); }
+.button { display:inline-block; background:var(--gold); color:var(--chocolate-dark); border:2px solid var(--chocolate-dark); padding:17px 30px; border-radius:8px; font-weight:900; font-size:15px; font-family:Arial,Helvetica,sans-serif; transition:.2s; margin:6px; }
+.button:hover { background:#e5c35c; transform:translateY(-3px); }
+.button-dark { background:var(--chocolate-dark); color:var(--white); }
+.button-dark:hover { background:var(--chocolate-light); }
+.section { padding:85px 20px; text-align:center; }
+.container { max-width:1100px; margin:auto; }
+.section-title { font-size:clamp(32px,5vw,52px); font-weight:900; margin:0 0 18px; }
+.section-description { font-size:18px; line-height:1.7; max-width:700px; margin:0 auto 45px; }
+.treats-section { background:var(--chocolate-dark); color:var(--white); }
+.treats-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+.treat-card { background:var(--chocolate-light); padding:35px 23px; border-radius:15px; border:1px solid #6b4334; }
+.treat-icon { font-size:55px; margin-bottom:20px; }
+.treat-card h3 { font-size:24px; color:var(--gold); font-family:Arial,Helvetica,sans-serif; }
+.treat-card p { color:#f3e5dc; font-size:16px; line-height:1.7; }
+.gelato-section { background:var(--white); }
+.gelato-content { max-width:850px; margin:auto; }
+.gelato-content p { font-size:17px; line-height:1.8; }
+.family-section { background:var(--accent-rose); color:var(--white); }
+.family-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:25px; }
+.family-card { background:var(--cream); color:var(--chocolate-dark); padding:40px 25px; border-radius:15px; }
+.family-card h3 { font-size:25px; font-family:Arial,Helvetica,sans-serif; }
+.family-card p { font-size:16px; line-height:1.7; }
+.family-card .symbol { font-size:45px; }
+.location { background:var(--white); }
+.location-box { background:var(--cream); border:2px solid var(--chocolate-dark); padding:45px 25px; max-width:700px; margin:auto; border-radius:16px; }
+.location-box h3 { font-size:28px; font-family:Arial,Helvetica,sans-serif; }
+.location-box p { font-size:18px; line-height:1.7; }
+footer { background:var(--chocolate-dark); color:var(--white); text-align:center; padding:40px 20px; font-family:Arial,Helvetica,sans-serif; }
+footer h2 { font-size:28px; color:var(--gold); }
+footer a { color:var(--gold); font-weight:bold; margin:0 12px; }
+footer p { color:#e3c9b9; font-size:14px; }
+@media (max-width:750px) { .treats-grid,.family-grid { grid-template-columns:1fr; } nav { justify-content:center; text-align:center; } .nav-links { justify-content:center; gap:15px; } .hero { min-height:550px; } .hero-content { padding:35px 20px; } .hero p { font-size:17px; } .section { padding:60px 18px; } }
 </style>
 </head>
 <body>
-
-<!-- NAVIGATION -->
-<nav>
-  <a href="index.html" class="logo">
-    CHOCOLATERIE <span>STAM</span>
-  </a>
+<nav aria-label="Main navigation">
+  <a href="index.html" class="logo">CHOCOLATERIE <span>STAM</span></a>
   <div class="nav-links">
     <a href="index.html">HOME</a>
     <a href="#treats">OUR TREATS</a>
-    <a href="#gelato">GELATO</a>
+    <a href="Ads.html">ADS</a>
     <a href="#family">OUR STORY</a>
     <a href="#location">FIND US</a>
   </div>
 </nav>
-
-<!-- HERO SECTION -->
 <section class="hero">
   <div class="hero-content">
-    <span class="eyebrow">
-      WELCOME TO CHOCOLATERIE STAM
-    </span>
-    <h1>
-      Love our chocolate? <br>Meet your new favorite coffee!
-    </h1>
-    <p>
-      From traditional bonbons, coffee offerings, to hand-crafted gelato, we proudly offer the highest quality of delights, treating every patron and employee as an extension of our family.
-    </p>
-    <a href="#treats" class="button">
-      EXPLORE OUR SELECTION
-    </a>
-    <a href="#gelato" class="button button-dark">
-      COFFEE SALE
-    </a>
+    <span class="eyebrow">WELCOME TO CHOCOLATERIE STAM</span>
+    <h1>Love our chocolate? <br>Meet your new favorite coffee!</h1>
+    <p>From traditional bonbons, coffee offerings, to hand-crafted gelato, we proudly offer the highest quality of delights, treating every patron and employee as an extension of our family.</p>
+    <a href="#treats" class="button">EXPLORE OUR SELECTION</a>
+    <a href="landing.html" class="button button-dark">COFFEE SALE</a>
   </div>
 </section>
-
-<!-- TREATS SECTION -->
 <section class="section treats-section" id="treats">
   <div class="container">
-    <h2 class="section-title">
-      TRADITIONAL CRAFTSMANSHIP
-    </h2>
-    <p class="section-description">
-      Every piece of chocolate is crafted with precision, passion, and time-honored European tradition.
-    </p>
+    <h2 class="section-title">TRADITIONAL CRAFTSMANSHIP</h2>
+    <p class="section-description">Every piece of chocolate is crafted with precision, passion, and time-honored European tradition.</p>
     <div class="treats-grid">
-      <div class="treat-card">
-        <div class="treat-icon">🍬</div>
-        <h3>BONBONS</h3>
-        <p>
-          Handcrafted bonbons filled with rich pralines, ganaches, and classic European recipe fillings.
-        </p>
-      </div>
-      <div class="treat-card">
-        <div class="treat-icon">🍨</div>
-        <h3>HAND-CRAFTED GELATO</h3>
-        <p>
-          Smooth, authentic Italian-style gelato prepared fresh daily with premium, real ingredients.
-        </p>
-      </div>
-      <div class="treat-card">
-        <div class="treat-icon">🎁</div>
-        <h3>SPECIALTY GIFT BOXES</h3>
-        <p>
-          Custom assortments tailored for holidays, weddings, corporate gifts, and special moments.
-        </p>
-      </div>
+      <div class="treat-card"><div class="treat-icon">🍬</div><h3>BONBONS</h3><p>Handcrafted bonbons filled with rich pralines, ganaches, and classic European recipe fillings.</p></div>
+      <div class="treat-card"><div class="treat-icon">🍨</div><h3>HAND-CRAFTED GELATO</h3><p>Smooth, authentic Italian-style gelato prepared fresh daily with premium, real ingredients.</p></div>
+      <div class="treat-card"><div class="treat-icon">🎁</div><h3>SPECIALTY GIFT BOXES</h3><p>Custom assortments tailored for holidays, weddings, corporate gifts, and special moments.</p></div>
     </div>
-    <div style="margin-top:35px;">
-      <a href="https://stamchocolate.com" target="_blank" rel="noopener noreferrer" class="button">
-        VISIT OUR SHOP
-      </a>
-    </div>
+    <div style="margin-top:35px"><a href="https://stamchocolate.com" target="_blank" rel="noopener noreferrer" class="button">VISIT OUR SHOP</a></div>
   </div>
 </section>
-
-<!-- GELATO FEATURE -->
 <section class="section gelato-section" id="gelato">
-  <div class="container gelato-grid">
-    <div>
-      <img
-     
-      >
-    </div>
-    <div class="gelato-content">
-      <span class="eyebrow">
-        
-      </span>
-      <h2>
-        Executive Summary
-      </h2>
-      <p>
-        As a group we have been working with Chocolaterie Stam, speficially the Ames store. So far we have conducted a website audit on the company's current website, in order to offer suggestions for improvement while applying the course material. For example, maximzing web presence, best web development practice (UX and UI design), click-through rate, SEO performance, etc. Our audit report was quite helpful in identifying Chocolaterie Stam website's weaknesses. 
-      </p>
-     
-      </a>
-    </div>
+  <div class="container gelato-content">
+    <span class="eyebrow">OUR WORK WITH CHOCOLATERIE STAM</span>
+    <h2 class="section-title">Executive Summary</h2>
+    <p>As a group we have been working with Chocolaterie Stam, specifically the Ames store. So far we have conducted a website audit on the company's current website, in order to offer suggestions for improvement while applying course material. For example, maximizing web presence, best web development practice (UX and UI design), click-through rate, SEO performance, and more. Our audit report was helpful in identifying opportunities to improve Chocolaterie Stam's web presence.</p>
   </div>
 </section>
-
-<!-- FAMILY & COMMUNITY SECTION -->
 <section class="section family-section" id="family">
   <div class="container">
-    <h2 class="section-title">
-      AN EXTENSION OF OUR FAMILY
-    </h2>
-    <p class="section-description">
-      When you walk through our doors, you are treated like family. Experience rich history and sweet hospitality.
-    </p>
+    <h2 class="section-title">AN EXTENSION OF OUR FAMILY</h2>
+    <p class="section-description">When you walk through our doors, you are treated like family. Experience rich history and sweet hospitality.</p>
     <div class="family-grid">
-      <div class="family-card">
-        <div class="symbol">🍫</div>
-        <h3>OUR HERITAGE</h3>
-        <p>
-          Centuries of tradition baked into every bite, preserving classic chocolate-making methods for generations.
-        </p>
-      </div>
-      <div class="family-card">
-        <div class="symbol">❤️</div>
-        <h3>OUR PROMISE</h3>
-        <p>
-          Treating every patron and team member with warmth, dedication, and the utmost care.
-        </p>
-      </div>
+      <div class="family-card"><div class="symbol">🍫</div><h3>OUR HERITAGE</h3><p>Centuries of tradition baked into every bite, preserving classic chocolate-making methods for generations.</p></div>
+      <div class="family-card"><div class="symbol">❤️</div><h3>OUR PROMISE</h3><p>Treating every patron and team member with warmth, dedication, and the utmost care.</p></div>
     </div>
   </div>
 </section>
-
-<!-- LOCATION SECTION -->
 <section class="section location" id="location">
   <div class="container">
-    <h2 class="section-title">
-      VISIT US TODAY
-    </h2>
-    <p class="section-description">
-      Step inside Chocolaterie Stam and indulge in a sweet escape.
-    </p>
-    <div class="location-box">
-      <h3>CHOCOLATERIE STAM</h3>
-      <p>
-        230 Main Street<br>
-        Ames, Iowa 50010
-      </p>
-      <p>
-        Bonbons, truffles, hand-crafted gelato, coffee, and warm Dutch hospitality.
-      </p>
-      <a href="https://stamchocolate.com" target="_blank" rel="noopener noreferrer" class="button">
-        OFFICIAL WEBSITE
-      </a>
-    </div>
+    <h2 class="section-title">VISIT US TODAY</h2>
+    <p class="section-description">Step inside Chocolaterie Stam and indulge in a sweet escape.</p>
+    <div class="location-box"><h3>CHOCOLATERIE STAM</h3><p>230 Main Street<br>Ames, Iowa 50010</p><p>Bonbons, truffles, hand-crafted gelato, coffee, and warm Dutch hospitality.</p><a href="https://stamchocolate.com" target="_blank" rel="noopener noreferrer" class="button">OFFICIAL WEBSITE</a></div>
   </div>
 </section>
-
-<!-- FOOTER -->
 <footer>
   <h2>CHOCOLATERIE STAM</h2>
   <p>Treating every patron and employee as an extension of our family.</p>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="#treats">Our Treats</a>
-    <a href="#gelato">Gelato</a>
-    <a href="#location">Locations</a>
-  </div>
-  <p style="margin-top:30px;">
-    &copy; Chocolaterie Stam. All rights reserved.
-  </p>
+  <div><a href="index.html">Home</a><a href="#treats">Our Treats</a><a href="Ads.html">Ads</a><a href="#location">Locations</a></div>
+  <p style="margin-top:30px">&copy; Chocolaterie Stam. All rights reserved.</p>
 </footer>
-
 </body>
 </html>
