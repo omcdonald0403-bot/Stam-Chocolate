@@ -23,37 +23,65 @@
       background: var(--cream);
     }
     a { text-decoration: none; }
-    .container { width: min(1120px, 100% - 40px); margin: 0 auto; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
     nav {
-      padding: 20px 7%; background: var(--chocolate-dark); color: var(--white);
-      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+      padding: 20px 7%;
+      background: var(--chocolate-dark);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
       font-family: Arial, Helvetica, sans-serif;
     }
     .logo { color: var(--white); font-size: 22px; font-weight: 900; letter-spacing: 1px; }
-    .logo span, nav a:hover { color: var(--gold); }
+    .logo span { color: var(--gold); }
     .nav-links { display: flex; flex-wrap: wrap; gap: 22px; }
     .nav-links a { color: var(--white); font-size: 14px; font-weight: bold; }
+    .nav-links a:hover { color: var(--gold); }
     .hero {
-      padding: 72px 20px 66px; color: var(--white); text-align: center;
+      padding: 72px 20px 66px;
+      color: var(--white);
+      text-align: center;
       background-color: var(--chocolate-dark);
       background-image: linear-gradient(45deg, rgba(212,175,55,.06) 25%, transparent 25%, transparent 75%, rgba(212,175,55,.06) 75%), linear-gradient(45deg, rgba(212,175,55,.06) 25%, transparent 25%, transparent 75%, rgba(212,175,55,.06) 75%);
-      background-size: 90px 90px; background-position: 0 0, 45px 45px;
+      background-size: 90px 90px;
+      background-position: 0 0, 45px 45px;
     }
     .eyebrow, .section-label {
-      display: block; margin-bottom: 16px; color: var(--gold); font: 900 13px Arial, Helvetica, sans-serif;
-      letter-spacing: 2.5px; text-transform: uppercase;
+      display: block;
+      margin-bottom: 16px;
+      color: var(--gold);
+      font: 900 13px Arial, Helvetica, sans-serif;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
     }
     h1 { max-width: 900px; margin: 0 auto 20px; font-size: clamp(38px, 6vw, 72px); line-height: 1.08; }
     h1 span { color: var(--gold); }
     .hero p { max-width: 760px; margin: 0 auto 30px; color: #f3e5dc; font-size: 18px; line-height: 1.7; }
     .ad-slot { text-align: center; }
-    .leaderboard { max-width: 850px; margin: 0 auto; padding: 10px; background: var(--cream); border: 1px solid var(--gold); border-radius: 8px; }
+    .leaderboard {
+      width: min(750px, 100%);
+      margin: 0 auto;
+      padding: 10px;
+      background: var(--cream);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+    }
     .ad-link { display: inline-block; max-width: 100%; line-height: 0; border-radius: 5px; }
-    .ad-link img { display: block; max-width: 100%; height: auto; border-radius: 4px; transition: transform .2s ease; }
+    .ad-link img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      transition: transform .2s ease;
+    }
+    .leaderboard img { width: 728px; }
+    .overview-visual img { width: 300px; }
+    .audience-visual img { width: 160px; }
+    .featured-visual img { width: 300px; }
     .ad-link:hover img { transform: scale(1.02); }
     .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 5px; }
-    .ad-label { margin: 12px 0 0; color: #7a584a; font: 13px Arial, Helvetica, sans-serif; line-height: 1.5; }
-    .hero .ad-label { color: #e3c9b9; }
     .section { padding: 82px 0; }
     .section-label { color: var(--accent-rose); }
     .section-title { margin: 0 0 20px; font-size: clamp(32px, 5vw, 50px); line-height: 1.12; }
@@ -61,13 +89,11 @@
     .overview-grid, .audience-grid, .featured-grid { display: grid; align-items: center; gap: 64px; }
     .overview-grid { grid-template-columns: 1.1fr 1fr; }
     .overview-visual, .featured-visual { text-align: center; }
-    .overview-visual img { width: 300px; }
     .goal { margin-top: 25px; padding: 18px 22px; border-left: 5px solid var(--gold); background: #f7ebe1; }
     .goal strong { font-family: Arial, Helvetica, sans-serif; }
     .goal p { margin-bottom: 0; line-height: 1.7; }
     .audience { background: var(--white); }
     .audience-grid { grid-template-columns: .65fr 1.35fr; }
-    .audience-visual img { width: 160px; }
     .audience-visual { text-align: center; }
     .audience-card { padding: 15px 0; border-bottom: 1px solid #e2d2c5; }
     .audience-card h3 { margin: 0 0 8px; color: var(--accent-rose); font: bold 20px Arial, Helvetica, sans-serif; }
@@ -81,7 +107,6 @@
     .strategy-step h3 { font: bold 18px Arial, Helvetica, sans-serif; }
     .strategy-step p { color: #f3e5dc; line-height: 1.65; }
     .featured-grid { grid-template-columns: 1fr 1fr; }
-    .featured-visual img { width: 300px; }
     .featured-content p { color: var(--chocolate-light); font-size: 17px; line-height: 1.8; }
     .button { display: inline-block; margin-top: 8px; padding: 15px 24px; border: 2px solid var(--chocolate-dark); border-radius: 7px; background: var(--gold); color: var(--chocolate-dark); font: 900 14px Arial, Helvetica, sans-serif; }
     .button:hover { background: #e5c35c; }
@@ -124,7 +149,6 @@
           <img src="stam-728x90.png" alt="Harvest Collection leaderboard ad: 20% off when you purchase a bag of coffee beans" width="728" height="90">
         </a>
       </div>
-      <p class="ad-label">Leaderboard · 728 × 90 · Select the ad to view the offer</p>
     </div>
   </header>
 
@@ -141,7 +165,6 @@
           <a href="landing.html" class="ad-link" aria-label="View the Harvest Collection offer">
             <img src="stam-300x250.png" alt="Harvest Collection medium rectangle ad with a seasonal 20% coffee offer" width="300" height="250" loading="lazy">
           </a>
-          <p class="ad-label">Medium Rectangle · 300 × 250</p>
         </div>
       </div>
     </section>
@@ -152,7 +175,6 @@
           <a href="landing.html" class="ad-link" aria-label="View the Harvest Collection offer">
             <img src="stam-160x600.png" alt="Tall Harvest Collection ad promoting 20% off coffee beans" width="160" height="600" loading="lazy">
           </a>
-          <p class="ad-label">Wide Skyscraper · 160 × 600</p>
         </div>
         <div class="audience-content">
           <span class="section-label">02 / MADE FOR OUR COMMUNITY</span>
@@ -190,7 +212,6 @@
           <a href="landing.html" class="ad-link" aria-label="View the Harvest Collection coffee offer">
             <img src="stam-300x600.png" alt="Harvest Collection half-page ad featuring 20% off a bag of coffee beans" width="300" height="600" loading="lazy">
           </a>
-          <p class="ad-label">Half Page / Large Skyscraper · 300 × 600</p>
         </div>
       </div>
     </section>
