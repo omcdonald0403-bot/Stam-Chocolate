@@ -32,11 +32,11 @@
     .kicker { margin: 0 0 8px; color: var(--rose); font: bold 12px Arial, Helvetica, sans-serif; letter-spacing: 1.8px; text-transform: uppercase; }
     h1 { margin: 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.15; }
     .article p { color: #66544c; font-size: 16px; line-height: 1.75; }
-    .article-image { width: 100%; height: 150px; margin: 20px 0; border-radius: 6px; background: linear-gradient(135deg, #f8eee2, #ead7c4); }
-    .article-image::after { content: 'CHOCOLATERIE STAM'; height: 100%; display: grid; place-items: center; color: #9e735b; font: bold 14px Arial, Helvetica, sans-serif; letter-spacing: 2px; }
     .medium { margin: 18px auto 0; text-align: center; }
     .medium img { width: 300px; }
     .half-page img { width: 300px; }
+    .coffee-photo { margin-top: 20px; }
+    .coffee-photo img { display: block; width: 300px; max-width: 100%; height: auto; }
     .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     @media (max-width: 900px) {
       .page-grid { grid-template-columns: 160px minmax(0, 1fr); }
@@ -80,7 +80,6 @@
           <h1>European chocolate, coffee &amp; handcrafted treats</h1>
         </header>
         <p>Discover traditional bonbons, rich coffee, and handcrafted treats from Chocolaterie Stam. Explore our seasonal collection and find a favorite to share.</p>
-
         <p>Made with care and inspired by European tradition, every visit is a chance to enjoy something special. Browse the featured offer and explore more from Stam.</p>
         <div class="medium">
           <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
@@ -93,6 +92,9 @@
         <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
           <img src="stam-300x600.png" width="300" height="600" alt="Chocolaterie Stam Harvest Collection half-page advertisement" loading="lazy">
         </a>
+        <div class="coffee-photo">
+          <img src="Coffee.png" width="1024" height="1536" alt="A cup of Chocolaterie Stam coffee with coffee beans">
+        </div>
       </aside>
     </div>
   </main>
