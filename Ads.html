@@ -37,8 +37,6 @@
     .medium { margin: 18px auto 0; text-align: center; }
     .medium img { width: 300px; }
     .half-page img { width: 300px; }
-    .footer-ad { margin-top: 24px; padding-top: 18px; border-top: 1px solid #e8dfd4; display: flex; justify-content: center; }
-    .footer-ad img { width: 728px; }
     .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     @media (max-width: 900px) {
       .page-grid { grid-template-columns: 160px minmax(0, 1fr); }
@@ -51,9 +49,8 @@
       .page-grid { grid-template-columns: minmax(0, 1fr); }
       .skyscraper, .half-page { display: none; }
       .leaderboard { margin-bottom: 14px; }
-      .leaderboard img, .footer-ad img { width: 100%; }
+      .leaderboard img { width: 100%; }
       .medium img { width: min(300px, 100%); }
-      .footer-ad { margin-top: 16px; }
     }
   </style>
 </head>
@@ -97,12 +94,6 @@
           <img src="stam-300x600.png" width="300" height="600" alt="Chocolaterie Stam Harvest Collection half-page advertisement" loading="lazy">
         </a>
       </aside>
-    </div>
-
-    <div class="footer-ad">
-      <a class="ad-link" href="landing.html" aria-label="Open the Harvest Collection offer">
-        <img src="stam-728x90.png" width="728" height="90" alt="Chocolaterie Stam Harvest Collection leaderboard advertisement" loading="lazy">
-      </a>
     </div>
   </main>
 </body>
