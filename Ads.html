@@ -37,7 +37,8 @@
     .half-page img { width: 300px; }
     .coffee-photo { margin-top: 20px; }
     .coffee-photo img { display: block; width: 300px; max-width: 100%; height: auto; }
-    .iced-coffee-photo img { width: 220px; }
+    .iced-coffee-photo { padding-left: 24px; }
+    .iced-coffee-photo img { width: 220px; max-width: 100%; }
     .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     @media (max-width: 900px) {
       .page-grid { grid-template-columns: 160px minmax(0, 1fr); }
@@ -52,6 +53,7 @@
       .leaderboard { margin-bottom: 14px; }
       .leaderboard img { width: 100%; }
       .medium img { width: min(300px, 100%); }
+      .iced-coffee-photo { padding-left: 16px; }
       .iced-coffee-photo img { width: min(220px, 100%); }
     }
   </style>
