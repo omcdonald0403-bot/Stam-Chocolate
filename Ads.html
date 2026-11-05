@@ -41,7 +41,9 @@
     .iced-coffee-photo img { width: 220px; max-width: 100%; }
     .instagram-button { display: inline-block; margin-top: 24px; padding: 12px 20px; border-radius: 6px; background: var(--chocolate-dark); color: var(--white); font: bold 14px Arial, Helvetica, sans-serif; text-decoration: none; }
     .instagram-button:hover, .instagram-button:focus-visible { background: var(--chocolate-light); color: var(--gold); }
-    .instagram-button:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .instagram-button:focus-visible, .instagram-icon-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .instagram-icon-link { display: block; width: 32px; height: 32px; margin-top: 10px; color: #000; }
+    .instagram-icon { display: block; width: 100%; height: 100%; }
     .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
     @media (max-width: 900px) {
       .page-grid { grid-template-columns: 160px minmax(0, 1fr); }
@@ -94,6 +96,11 @@
           </a>
         </div>
         <a class="instagram-button" href="https://www.instagram.com/chocolateriestamames/?hl=en" target="_blank" rel="noopener noreferrer">Follow Chocolaterie Stam on Instagram</a>
+        <a class="instagram-icon-link" href="https://www.instagram.com/chocolateriestamames/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Visit Chocolaterie Stam on Instagram">
+          <svg class="instagram-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M7.75 2h8.5A5.76 5.76 0 0 1 22 7.75v8.5A5.76 5.76 0 0 1 16.25 22h-8.5A5.76 5.76 0 0 1 2 16.25v-8.5A5.76 5.76 0 0 1 7.75 2Zm0 2A3.75 3.75 0 0 0 4 7.75v8.5A3.75 3.75 0 0 0 7.75 20h8.5A3.75 3.75 0 0 0 20 16.25v-8.5A3.75 3.75 0 0 0 16.25 4h-8.5ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z"/>
+          </svg>
+        </a>
       </article>
 
       <aside class="half-page" aria-label="Advertisement">
