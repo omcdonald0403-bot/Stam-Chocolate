@@ -45,6 +45,15 @@
     .instagram-icon-link { display: block; width: 32px; height: 32px; margin-top: 10px; color: #000; }
     .instagram-icon { display: block; width: 100%; height: 100%; }
     .ad-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .review-section { width: min(1120px, calc(100% - 32px)); margin: 26px auto 40px; padding: 22px 24px 18px; background: #232428; color: #f6f6f6; border-radius: 10px; }
+    .review-header { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+    .review-avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; flex-shrink: 0; background: linear-gradient(135deg, #d98cc8, #843d91); color: #fff; font: bold 15px Georgia, serif; }
+    .review-author { margin: 0; color: #e8eaed; font: bold 18px Arial, Helvetica, sans-serif; }
+    .review-meta { margin: 3px 0 0; color: #bdc1c6; font: 14px Arial, Helvetica, sans-serif; }
+    .review-more { margin-left: auto; color: #bdc1c6; font: bold 24px Arial, Helvetica, sans-serif; }
+    .review-rating { display: flex; align-items: center; gap: 2px; margin: 8px 0 14px; color: #fbbc04; font: 20px Arial, Helvetica, sans-serif; }
+    .review-edited { margin-left: 8px; color: #bdc1c6; font: 14px Arial, Helvetica, sans-serif; }
+    .review-text { margin: 0; color: #e8eaed; font: 16px/1.55 Arial, Helvetica, sans-serif; }
     @media (max-width: 900px) {
       .page-grid { grid-template-columns: 160px minmax(0, 1fr); }
       .half-page { display: none; }
@@ -60,6 +69,8 @@
       .medium img { width: min(300px, 100%); }
       .iced-coffee-photo { padding-left: 16px; }
       .iced-coffee-photo img { width: min(220px, 100%); }
+      .review-section { width: min(100% - 16px, 500px); margin: 16px auto 24px; padding: 16px; }
+      .review-text { font-size: 15px; }
     }
   </style>
 </head>
@@ -118,5 +129,21 @@
       </aside>
     </div>
   </main>
+
+  <section class="review-section" aria-label="Customer review">
+    <div class="review-header">
+      <div class="review-avatar" aria-hidden="true">W</div>
+      <div>
+        <p class="review-author">Wijdan Tawfiq</p>
+        <p class="review-meta">Local Guide · 133 reviews · 524 photos</p>
+      </div>
+      <span class="review-more" aria-hidden="true">⋮</span>
+    </div>
+    <div class="review-rating" aria-label="5 out of 5 stars">
+      <span aria-hidden="true">★★★★★</span>
+      <span class="review-edited">Edited 3 years ago</span>
+    </div>
+    <p class="review-text">Best coffee shop/ chocolatier in town. I like the atmosphere, the antique, the coffee, the gelato, and the positive vibes. Their service and hospitality amazing. The manager himself will welcome you by the door and ask you about your experience! Definitely will go back.</p>
+  </section>
 </body>
 </html>
